@@ -1,0 +1,36 @@
+/*---------------------
+      1241px以上
+----------------------*/
+$max:1241px;
+@mixin max {
+  @media (min-width: ($max)) {
+    @content;
+  }
+}
+/*---------------------
+      760px以下
+----------------------*/
+$sp:760px;
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+/*---------------------
+      320px以下
+----------------------*/
+$mini:320px;
+@mixin mini {
+  @media (max-width: ($mini)) {
+    @content;
+  }
+}
+/*---------------------
+      高さ800px以下
+----------------------*/
+$h-min:850px;
+@mixin h-min {
+  @media (max-height: ($h-min)) {
+    @content;
+  }
+}

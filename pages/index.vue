@@ -1,0 +1,688 @@
+<template>
+  <div>
+
+    <!-- fv -->
+    <div class="fv">
+      <div class="fv__title">
+        <p class="title1"><span class="span">QUALITY</span></p>
+        <p class="title2 ff-n"><span class="span">綿密なサイト設計と伝えるデザイン</span></p>
+        <p class="title3 ff-n">
+          <span class="span">万全の制作体制で様々な要望に<br />柔軟に対応することを可能としています</span>
+        </p>
+      </div>
+      <div class="cover"><div class="fv__img"></div></div>
+    </div>
+    <!-- /fv -->
+    <!-- news -->
+    <section id="news" class="news unit">
+      <h2 class="news__title">
+        <span class="span">INFORMATION</span><br />お知らせ
+      </h2>
+      <div class="news__box">
+        <div v-for="newn in news" :key="news.id" class="news__box-item">
+          <p class="data">{{ newn.day }}</p>
+          <p class="title ff-n">{{ newn.title }}</p>
+        </div>
+      </div>
+    </section>
+    <!-- /news -->
+    <!-- service -->
+    <section id="service" class="service">
+      <div class="flex">
+        <div class="img01"><div class="filter"></div></div>
+        <div class="text-box">
+          <p class="title ff-n">ホームページ制作</p>
+          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+        </div>
+      </div>
+
+      <div class="flex flex-reverse">
+        <div class="img02"><div class="filter02"></div></div>
+        <div class="text-box">
+          <p class="title ff-n">コーディング代行</p>
+          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="img03"><div class="filter03"></div></div>
+        <div class="text-box">
+          <p class="title ff-n">コードレビュー、技術的指導</p>
+          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+        </div>
+      </div>
+    </section>
+    <!-- /service -->
+    <!-- works -->
+    <section id="works" class="works unit">
+      <h2 class="works__title">
+        <span class="span">WORKS</span><br />制作実績
+      </h2>
+      <div class="works__box">
+        <nuxt-link
+          :to="item.id"
+          v-for="item in items"
+          :key="item.id"
+          class="box"
+        >
+          <p
+            class="img"
+            :style="{ 'background-image': 'url(' + item.img.url + ')' }"
+          ></p>
+          <p class="title ff-n">{{ item.title }}</p>
+        </nuxt-link>
+      </div>
+      <nuxt-link to="/works" class="works__more">VIEW MORE</nuxt-link>
+    </section>
+    <!-- works -->
+  </div>
+</template>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import axios from "axios";
+
+if (process.client) {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+
+export default {
+
+  data() {
+    return {};
+  },
+  head: {
+    script: [],
+  },
+  async asyncData({ params }) {
+    const page = params.p || "1";
+    const limit = 6;
+    const works = await axios.get(
+      `https://quality.microcms.io/api/v1/works?limit=${limit}&offset=${
+        (page - 1) * limit
+      }`,
+      { headers: { "X-API-KEY": process.env.API_KEY } }
+    );
+    const day = 3;
+    const news = await axios.get(
+      `https://quality.microcms.io/api/v1/news?limit=${day}&offset=${
+        (page - 1) * day
+      }`,
+      { headers: { "X-API-KEY": process.env.API_KEY } }
+    );
+    return {
+      items: works.data.contents,
+      news: news.data.contents,
+    };
+  },
+
+  //  GSAP
+  mounted() {
+    this.scrollItemA();
+  },
+  methods: {
+    scrollItemA() {
+
+      // TweenMax処理
+      TweenMax.to('.fv__img', 2 , {width:'100%',width:'100%',ease: Power4.easeOut}),
+      TweenMax.to('.span' , .5 , { bottom:'0', delay : 0, }),
+
+
+
+      // GSAp処理
+        gsap.to(".fv__title", {
+        yPercent: -70,
+        scrollTrigger: {
+          trigger: ".fv__title",
+          scrub: true,
+        },
+      }),
+        gsap.to(".news__title", {
+          opacity: 1,
+          y: -20,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".news__title",
+            start: "top 80%",
+            scrub: false,
+          },
+        }),
+        gsap.to(".service__title", {
+          opacity: 1,
+          y: -20,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".service__title",
+            start: "top 80%",
+          },
+        }),
+        gsap.to(".filter", {
+          height:0,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".filter",
+            start: "top 80%",
+
+          },
+        }),
+        gsap.to(".filter02", {
+          height:0,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".filter02",
+            start: "top 80%",
+
+          },
+        }),
+        gsap.to(".filter03", {
+          height:0,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".filter03",
+            start: "top 80%",
+
+          },
+        }),
+        gsap.to(".works__title", {
+          opacity: 1,
+          y: -20,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".works__title",
+            start: "top 80%",
+          },
+        }),
+        gsap.to(".box", {
+          opacity: 1,
+          y: -20,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".box",
+            start: "top 80%",
+            scrub: false,
+          },
+          stagger: {
+            from: "start",
+            amount: 1,
+          },
+        }),
+        gsap.to(".item", {
+          opacity: 1,
+          y: -20,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".item",
+            start: "top 80%",
+            scrub: false,
+          },
+          stagger: {
+            from: "start",
+            amount: 0.3,
+          },
+        });
+        gsap.to(".news__box-item", {
+        opacity: 1,
+        y: -20,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".news__box-item",
+          start: "top 80%",
+          scrub: false,
+        },
+        stagger: {
+          from: "start",
+          amount: 0.3,
+        },
+      });
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+
+/*----------------------
+      FV
+-----------------------*/
+.fv {
+  height: 100vh;
+  position: relative;
+  @include sp {
+    height: 400px;
+  }
+  .cover {
+    width: 70%;
+    height: 700px;
+    position: absolute;
+    top: 55%;
+    right: 0;
+    border-radius: 15px 0 0 15px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    @include h-min {
+      width: 100rem;
+      max-width: 100%;
+      height: 500px;
+    }
+    @include sp {
+      width: 80%;
+      height: 28rem;
+      top: 20%;
+      right: 0;
+      transform: translateY(0%) translateX(0%);
+    }
+
+  .fv__img {
+    width: 0;
+    height: 100%;
+    background-image: url(@/assets/img/top2.jpg);
+    background-size: 140rem;
+    background-repeat: no-repeat;
+    @include h-min {
+      background-size: 105rem;
+    }
+    @include sp {
+      background-size: 50rem;
+    }
+  }
+  }
+
+  &__title {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    z-index: 3;
+    @include sp {
+      top: 85%;
+      left: 0;
+    }
+    .title1 {
+      width: fit-content;
+      font-size: 9rem;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      @include sp {
+        max-width: 17rem;
+        font-size: 3rem;
+      }
+      .span {
+        display: inline-block;
+        position: relative;
+        bottom: -200px;
+        padding: 0.5rem 2rem;
+        background-color: #2a9963;
+      }
+    }
+    .title2 {
+      width: fit-content;
+      max-height: 4.2rem;
+      font-size: 3rem;
+      color: rgb(87, 87, 87);
+      margin: 1rem 0 0 0;
+      overflow: hidden;
+      position: relative;
+      @include sp {
+        max-height: 3rem;
+        font-size: 1.8rem;
+        margin: .2rem 0 0rem 0;
+      }
+      .span {
+        display: inline-block;
+        position: relative;
+        bottom: -200px;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+      }
+    }
+    .title3 {
+      width: fit-content;
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: rgb(87, 87, 87);
+      line-height: 1.6;
+      overflow: hidden;
+      position: relative;
+      @include sp {
+        font-size: 1.4rem;
+      }
+      .span {
+        display: inline-block;
+        position: relative;
+        bottom: -200px;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+/*----------------------
+      NEWS
+-----------------------*/
+.news {
+  display: flex;
+  justify-content: space-around;
+  padding: 10rem 1rem;
+  @include sp {
+    display: block;
+    padding: 12rem 2rem 5rem 2rem;
+  }
+  &__title {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    opacity: 0;
+    @include sp {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+    }
+    .span {
+      display: block;
+      font-size: 6rem;
+      position: relative;
+      @include sp {
+        font-size: 3.5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 14rem;
+        height: 1px;
+        background-color: #2a9963;
+        @include sp {
+          width: 7rem;
+        }
+      }
+    }
+  }
+  &__box {
+    &-item {
+      opacity: 0;
+      width: 63rem;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 23px 0;
+      border-bottom: 1px #dbdbdb solid;
+      .data {
+        width: 20rem;
+        max-width: 100%;
+        font-size: 1.4rem;
+        @include sp {
+          font-size: 1.2rem;
+        }
+      }
+      .title {
+        width: 30rem;
+        max-width: 100%;
+        font-size: 1.8rem;
+        font-weight: 300;
+        @include sp {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+/*----------------------
+      SERVICE
+-----------------------*/
+.service {
+  margin: 7rem 0 10rem 0;
+
+  .flex {
+    display: flex;
+    @include sp {
+      display: block;
+    }
+    &-reverse {
+      flex-direction: row-reverse;
+      margin: 20rem 0;
+      @include sp {
+        margin: 2rem 0;
+      }
+    }
+    .img01 {
+      width: 50%;
+      height: 40rem;
+      border-radius: 0 20px 20px 0;
+      background-color: #333;
+      position: relative;
+      @include sp {
+        width: 70%;
+        height: 16rem;
+      }
+      .filter {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: #fff;
+      }
+    }
+    .img02 {
+      width: 50%;
+      height: 40rem;
+      border-radius: 20px 0 0 20px;
+      background-color: #333;
+      position: relative;
+      @include sp {
+        width: 70%;
+        height: 16rem;
+        margin-left: auto;
+      }
+      .filter02 {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: #fff;
+      }
+    }
+    .img03 {
+      width: 50%;
+      height: 40rem;
+      border-radius: 0 20px 20px 0;
+      background-color: #333;
+      position: relative;
+      @include sp {
+        width: 70%;
+        height: 16rem;
+      }
+      .filter03 {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: #fff;
+      }
+    }
+    .text-box {
+      width: 60rem;
+      max-width: 100%;
+      padding: 6rem 5rem;
+      @include sp {
+        padding: 1rem 2rem;
+      }
+      .title {
+        font-size: 3.6rem;
+        margin-bottom: 2.4rem;
+        @include sp {
+          font-size: 1.6rem;
+          margin: 1rem 0 1rem 0;
+        }
+      }
+      .text {
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 1.7;
+        @include sp {
+          font-size: 1.4rem;
+        }
+      }
+      .more {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        font-size: 2rem;
+        margin-top: 4rem;
+        @include sp {
+          font-size:1.6rem;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+ 
+
+}
+/*----------------------
+      WORKS
+-----------------------*/
+.works {
+  padding: 5rem 1rem;
+  margin-bottom: 10rem;
+  @include sp {
+    padding: 10px;
+  }
+  &__title {
+    opacity: 0;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    @include sp {
+      font-size: 1.4rem;
+    }
+    .span {
+      display: block;
+      font-size: 6rem;
+      position: relative;
+      @include sp {
+        font-size: 3.5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 14rem;
+        height: 1px;
+        background-color: #2a9963;
+        @include sp {
+          width: 5rem;
+        }
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include sp {
+      display: block;
+    }
+    &::after {
+      content: '';
+      width: 32%;
+      @include sp {
+        width: 95%;
+      }
+    }
+    .box {
+      opacity: 0;
+      display: block;
+      width: 32%;
+      margin-top: 30px;
+      overflow: hidden;
+      @include sp {
+        width: 31rem;
+        margin: 30px auto;
+      }
+      .img {
+        width: 100%;
+        height: 25rem;
+        background-size: 42rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        @include sp {
+          height: 18rem;
+          background-size: 34.5rem;
+        }
+        &:hover {
+         opacity: .7;
+         transition: .2s;
+        }
+      }
+      .title {
+        font-size: 1.6rem;
+        color: #2a9963;
+        margin-top: 10px;
+        @include sp {
+          font-size: 1.3rem;
+          margin: 1rem 0 3rem 0;
+        }
+        &:hover {
+         opacity: .7;
+         transition: .2s;
+        }
+      }
+    }
+  }
+  &__more {
+    display: block;
+    width: fit-content;
+    margin: 5rem 7rem 0 auto;
+    text-align: right;
+    position: relative;
+    @include sp {
+      margin: 2rem 6rem 0 auto;
+    }
+    &::after {
+      content: "→";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: -5rem;
+      transform: translateY(-50%);
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      border: 1px solid;
+      text-align: center;
+      padding-top: 1rem;
+      transition: 0.2s;
+      @include sp {
+        padding-top: 1.1rem;
+      }
+    }
+    &:hover::after {
+      content: "→";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: -5rem;
+      transform: translateY(-50%);
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      border: 1px solid;
+      text-align: center;
+      padding-top: 1rem;
+      padding-left: 3rem;
+      transition: 0.2s;
+    }
+  }
+}
+</style>
