@@ -139,11 +139,15 @@ export default {
     }
     p {
       font-size: 1.6rem;
-      line-height: 1.6;
+      line-height: 1.75;
       margin: 1rem 0;
+      color: #333;
       @include sp {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
+    }
+    span {
+      color: #333!important;
     }
     h2 {
       font-size: 2rem;

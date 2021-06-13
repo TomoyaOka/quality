@@ -64,7 +64,7 @@
           </tr>
           <tr>
             <th>サイトURL</th>
-            <td><a href="/">https://xxx.com</a></td>
+            <td><a href="/">https://quality-web.jp/</a></td>
           </tr>
           <tr>
             <th>業務内容</th>

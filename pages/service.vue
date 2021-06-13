@@ -20,56 +20,36 @@
 
       <h3 id="webdesign" class="service-list__name">ホームページ制作</h3>
       <div class="service-list__box">
-        <div class="img"><img src="@/assets/img/device.png"></div>
+        <div class="img img__one"></div>
         <div class="text">
-          <p>デザイン~サイトの構築まで一貫して制作していきます。<br>作る目的や制作後の運用方法に沿ったサイト設計を行います。<br>使いやすく見やすいサイトを提供いたします。<br>企画進行~最期の納品までは、約1か月~2か月を目安にしていただく形になります。<br>具体的な制作フローに関しては<a href="#flow">こちら</a>をご参照ください。</p>
-          <button @click="show" class="plan">料金プランを見る</button>
-          <modal name="modal-content" max-width="80rem" :draggable="true">
-            <p class="modal-text ff-n">
-              <span>― 更新機能あり</span><br>
-              ・例)5ページ<br>
-              ・サイト設計、企画<br>
-              ・デザイン~サイト構築<br>
-              ・ブログ機能<br>
-              ・お問い合わせ設置<br>
-               ― 150,000円~<br>
-              <span>― 更新機能なし</span><br>
-              ・例)5ページ<br>
-              ・サイト設計、企画<br>
-              ・デザイン~サイト構築<br>
-              ・お問い合わせ設置<br>
-               ― 120,000円~<br>
-               ※参考価格です。<br>詳しくはお問い合わせください。
-            </p>
-            <button @click="hide" class="close">×</button>
-            <img src="@/assets/img/logo.png" class="modal__img" alt="">
-            <a href="/contact" class="modal__btn">問い合わせはこちら</a>
-          </modal>
+          <p>デザイン~サイトの構築まで一貫して制作していきます。<br>作る目的や制作後の運用方法に沿ったサイト設計を行います。<br>使いやすく見やすいサイトを提供いたします。<br>企画進行~最期の納品までは、約1か月~2か月を目安にしていただく形になります。</p>
+          <nuxt-link to="/webdesign" class="more">VIEW MORE</nuxt-link>
+
         </div>
       </div>
 
       <h3 id="coding" class="service-list__name">コーディング代行</h3>
       <div class="service-list__box">
-        <div class="img"><img src="@/assets/img/netlify.svg"></div>
+        <div class="img img__two"></div>
         <p class="text">
-          カンプからのコーディングを請け負います。<br>
+          カンプからのコーディングやCMS導入などを請け負います。<br>
           納期目安：2週間~ (ボリュームにより前後)<br>
           ― 対応できる範囲<br>
           ・WordPressを使用したオリジナルテーマ構築<br>
           ・Vue.js  Nuxt.jsを使用したサイト制作範囲内の構築<br>
           ・シンプルHTML.CSSでの構築<br>
-          <span>※料金はお問い合わせください</span>
+           <nuxt-link to="/coding" class="more">VIEW MORE</nuxt-link>
           </p>
       </div>
 
-      <h3 id="review" class="service-list__name">コードレビュー</h3>
+      <h3 id="review" class="service-list__name">Mentor</h3>
       <div class="service-list__box">
-        <div class="img"><img src="@/assets/img/review.png"></div>
+        <div class="img img__three"></div>
         <p class="text">
             HTML.CSSのコードレビュー、制作指導を行います。<br>
-            WordPressを使用してオリジナルテーマ制作についても対応可能ですので、<br>
+            WordPressを使用してオリジナルテーマ制作についても対応可能ですので、
             学習に詰まってしまっている方、メンターを探している方は是非ご検討ください。<br>
-            <span>※料金はお問い合わせください</span>
+            <nuxt-link to="/mentor" class="more">VIEW MORE</nuxt-link>
           </p>
       </div>
 
@@ -211,80 +191,12 @@ export default {
         });
         
     },
-    // モダールウィンドウ
-    show() {
-      this.$modal.show("modal-content");
-    },
-    hide() {
-      this.$modal.hide("modal-content");
-    },
   },
 };
 </script>
 
 <style lang="scss">
-.vm--overlay {
-  background-color: rgba(74, 147, 128, .2);
-}
-.vm--modal {
-  min-height:70rem;
-  border-radius: 15px;
-  padding: 1rem 4rem;
-  top: 50%!important;
-  left: 50%!important;
-  transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 5px 10px 6px rgba(44, 44, 44, 0.1);
-  @include sp {
-    max-width: 30rem!important;
-    min-height:50rem!important;
-    padding: 1rem 2rem;
-  }
-}
-.modal-text {
-  font-size: 1.6rem;
-  font-weight: 500;
-  @include sp {
-    font-size: 1.3rem;
-  }
-  span {
-    display: inline-block!important;
-    font-size: 2rem;
-    @include sp {
-      font-size: 1.6rem;
-    }
-  }
-}
-.modal__img {
-  display: block;
-  width: 10rem;
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-  @include sp {
-    width: 3rem;
-  }
-}
-.modal__btn {
-  display: block;
-  width: 30rem;
-  height: 6rem;
-  text-align: center;
-  font-weight: bold;
-  color: #fff!important;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  background-color: #2a9963;
-  transition: .2s;
-  @include sp {
-    width: 20rem;
-    height: 4rem;
-    padding: .8rem;
-  }
-  &:hover {
-    background-color: #1b6441;
-    transition: .2s;
-  }
-}
+
 .close {
   display: block;
   width: 5rem;
@@ -444,9 +356,9 @@ export default {
   }
 
   &__name {
-    width: 60rem;
+    width: 51rem;
     max-width: 100%;
-    font-size: 4rem;
+    font-size: 3.4rem;
     border-bottom: 1px solid;
     padding-bottom: 2rem;
     margin-bottom: 3rem;
@@ -468,13 +380,19 @@ export default {
       margin-bottom: 5rem;
     }
     .text {
+      width: 51rem;
+      max-width: 100%;
       font-size: 1.8rem;
       line-height: 1.75;
       @include sp {
         font-size: 1.4rem;
       }
       a {
+        width: fit-content;
+        display: block;
         color: #2a9963;
+        margin: 3rem 0 0 auto;
+        text-align: right;
       }
       span {
         display: block;
@@ -494,13 +412,40 @@ export default {
       }
     }
     .img {
-      width: 25rem;
+      width: 50rem;
+      height: 30rem;
+      margin-top: -3rem;
+      position: relative;
       @include sp {
-        width: 13rem;
+        width: 100%;
+        height: 20rem;
         margin: 2rem auto;
       }
       img {
         width: 100%;
+      }
+      &__one {
+        background-image: url(@/assets/img/web05.png);
+        background-size: 50rem;
+        @include sp {
+        background-size: 36rem;
+
+        }
+      }
+      &__two {
+        background-image: url(@/assets/img/web10.png);
+        background-size: 50rem;
+        background-position: center;
+        @include sp {
+        background-size: 36rem;
+        }
+      }
+      &__three {
+        background-image: url(@/assets/img/web09.png);
+        background-size: 50rem;
+        @include sp {
+        background-size: 36rem;
+        }
       }
     }
   }
@@ -579,7 +524,7 @@ export default {
     .title {
       font-size: 2.4rem;
       letter-spacing: 0.05em;
-      font-weight: bold;
+      font-weight: 500;
       @include sp {
         font-size: 1.8rem;
         margin-bottom: 10px;
@@ -591,7 +536,7 @@ export default {
       width: 100%;
       font-size: 2rem;
       font-weight: 300;
-      margin-left: 9.5rem;
+      margin-left: 10rem;
       line-height: 1.6;
       @include sp {
         font-size: 1.4rem;

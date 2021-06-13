@@ -1,11 +1,13 @@
 <template>
   <div>
-
+    <Opening />
     <!-- fv -->
     <div class="fv">
       <div class="fv__title">
         <p class="title1"><span class="span">QUALITY</span></p>
-        <p class="title2 ff-n"><span class="span">綿密なサイト設計と伝えるデザイン</span></p>
+        <p class="title2 ff-n">
+          <span class="span">綿密なサイト設計と伝えるデザイン</span>
+        </p>
         <p class="title3 ff-n">
           <span class="span">万全の制作体制で様々な要望に<br />柔軟に対応することを可能としています</span>
         </p>
@@ -32,26 +34,33 @@
         <div class="img01"><div class="filter"></div></div>
         <div class="text-box">
           <p class="title ff-n">ホームページ制作</p>
-          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+          <p class="text ff-n">
+            サイト設計 - デザイン - 構築までワンストップで受付ています。<br>UI / UXを考慮したサイト設計で、見やすい使いやすいを一番に考え制作させていただいております。
+          </p>
+          <nuxt-link to="/webdesign" class="more">VIEW MORE</nuxt-link>
         </div>
       </div>
 
       <div class="flex flex-reverse">
         <div class="img02"><div class="filter02"></div></div>
         <div class="text-box">
-          <p class="title ff-n">コーディング代行</p>
-          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+          <p class="title ff-n">コーディング.構築</p>
+          <p class="text ff-n">
+            CMS導入や小規模システム構築、HTMLとCSSによる構築を請け負っています。illustrator.Photoshop.figma.XDどのソフトにも対応しています。
+          </p>
+          <nuxt-link to="/coding" class="more">VIEW MORE</nuxt-link>
         </div>
       </div>
 
       <div class="flex">
         <div class="img03"><div class="filter03"></div></div>
         <div class="text-box">
-          <p class="title ff-n">コードレビュー、技術的指導</p>
-          <p class="text ff-n">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          <nuxt-link to="/service" class="more">VIEW MORE</nuxt-link>
+          <p class="title ff-n">Mentor</p>
+          <p class="text ff-n">
+            WordPressオリジナルテーマ制作やHTML.CSSなどのコードレビュー、技術的指導を行います。<br>
+            基本的にマンツーマンで進行していくので、受講者のペースで確実に学ぶことが出来ます。
+          </p>
+          <nuxt-link to="/mentor" class="more">VIEW MORE</nuxt-link>
         </div>
       </div>
     </section>
@@ -90,9 +99,7 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-
 export default {
-
   data() {
     return {};
   },
@@ -127,21 +134,21 @@ export default {
   },
   methods: {
     scrollItemA() {
-
       // TweenMax処理
-      TweenMax.to('.fv__img', 2 , {width:'100%',width:'100%',ease: Power4.easeOut}),
-      TweenMax.to('.span' , .5 , { bottom:'0', delay : 0, }),
-
-
-
-      // GSAp処理
-        gsap.to(".fv__title", {
-        yPercent: -70,
-        scrollTrigger: {
-          trigger: ".fv__title",
-          scrub: true,
-        },
+      TweenMax.to(".fv__img", 2, {
+        width: "100%",
+        width: "100%",
+        ease: Power4.easeOut,
       }),
+        TweenMax.to(".span", 0.5, { bottom: "0", delay: 0 }),
+        // GSAp処理
+        gsap.to(".fv__title", {
+          yPercent: -70,
+          scrollTrigger: {
+            trigger: ".fv__title",
+            scrub: true,
+          },
+        }),
         gsap.to(".news__title", {
           opacity: 1,
           y: -20,
@@ -162,30 +169,28 @@ export default {
           },
         }),
         gsap.to(".filter", {
-          height:0,
+          height: 0,
           duration: 0.5,
+         ease: Power4.easeOut,
           scrollTrigger: {
             trigger: ".filter",
             start: "top 80%",
-
           },
         }),
         gsap.to(".filter02", {
-          height:0,
+          height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter02",
             start: "top 80%",
-
           },
         }),
         gsap.to(".filter03", {
-          height:0,
+          height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter03",
             start: "top 80%",
-
           },
         }),
         gsap.to(".works__title", {
@@ -225,7 +230,7 @@ export default {
             amount: 0.3,
           },
         });
-        gsap.to(".news__box-item", {
+      gsap.to(".news__box-item", {
         opacity: 1,
         y: -20,
         duration: 0.5,
@@ -245,7 +250,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 /*----------------------
       FV
 -----------------------*/
@@ -277,19 +281,19 @@ export default {
       transform: translateY(0%) translateX(0%);
     }
 
-  .fv__img {
-    width: 0;
-    height: 100%;
-    background-image: url(@/assets/img/top2.jpg);
-    background-size: 140rem;
-    background-repeat: no-repeat;
-    @include h-min {
-      background-size: 105rem;
+    .fv__img {
+      width: 0;
+      height: 100%;
+      background-image: url(@/assets/img/top2.jpg);
+      background-size: 140rem;
+      background-repeat: no-repeat;
+      @include h-min {
+        background-size: 105rem;
+      }
+      @include sp {
+        background-size: 50rem;
+      }
     }
-    @include sp {
-      background-size: 50rem;
-    }
-  }
   }
 
   &__title {
@@ -303,7 +307,7 @@ export default {
     }
     .title1 {
       width: fit-content;
-      font-size: 9rem;
+      font-size: 12rem;
       color: #fff;
       overflow: hidden;
       position: relative;
@@ -321,8 +325,8 @@ export default {
     }
     .title2 {
       width: fit-content;
-      max-height: 4.2rem;
-      font-size: 3rem;
+      max-height: 5.5rem;
+      font-size: 4rem;
       color: rgb(87, 87, 87);
       margin: 1rem 0 0 0;
       overflow: hidden;
@@ -330,7 +334,7 @@ export default {
       @include sp {
         max-height: 3rem;
         font-size: 1.8rem;
-        margin: .2rem 0 0rem 0;
+        margin: 0.2rem 0 0rem 0;
       }
       .span {
         display: inline-block;
@@ -342,10 +346,10 @@ export default {
     }
     .title3 {
       width: fit-content;
-      font-size: 2.4rem;
+      font-size: 3rem;
       font-weight: 500;
       color: rgb(87, 87, 87);
-      line-height: 1.6;
+      line-height: 1.8;
       overflow: hidden;
       position: relative;
       @include sp {
@@ -416,6 +420,7 @@ export default {
         max-width: 100%;
         font-size: 1.4rem;
         @include sp {
+          width: 10rem;
           font-size: 1.2rem;
         }
       }
@@ -454,58 +459,69 @@ export default {
       width: 50%;
       height: 40rem;
       border-radius: 0 20px 20px 0;
-      background-color: #333;
+      background-image: url(@/assets/img/web06.png);
+      background-size: 100rem;
       position: relative;
       @include sp {
         width: 70%;
         height: 16rem;
+        background-size: 40rem;
+        background-position: center;
       }
       .filter {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
       }
     }
     .img02 {
       width: 50%;
       height: 40rem;
       border-radius: 20px 0 0 20px;
-      background-color: #333;
+      background-image: url(@/assets/img/web10.png);
+      background-size: 95rem;
+      background-position: center;
       position: relative;
       @include sp {
         width: 70%;
         height: 16rem;
         margin-left: auto;
+        background-size: 26rem;
+        background-position: center;
       }
       .filter02 {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
       }
     }
     .img03 {
       width: 50%;
       height: 40rem;
       border-radius: 0 20px 20px 0;
-      background-color: #333;
+      background-image: url(@/assets/img/web13.png);
+      background-size: 95rem;
+      background-position: center;
       position: relative;
       @include sp {
         width: 70%;
         height: 16rem;
+        background-size: 67rem;
+        background-position: 60% 30%;
       }
       .filter03 {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
       }
     }
     .text-box {
@@ -526,9 +542,10 @@ export default {
       .text {
         font-size: 1.6rem;
         font-weight: 300;
-        line-height: 1.7;
+        line-height: 1.8;
         @include sp {
           font-size: 1.4rem;
+          line-height: 1.7;
         }
       }
       .more {
@@ -536,16 +553,47 @@ export default {
         width: fit-content;
         margin-left: auto;
         font-size: 2rem;
-        margin-top: 4rem;
+        margin-top: 8rem;
+        padding: 1rem 2rem;
+        position: relative;
         @include sp {
-          font-size:1.6rem;
+          font-size: 1.6rem;
           margin-top: 2rem;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0rem;
+          transform: translateY(-50%);
+          width: 1rem;
+          height: 1rem;
+          background-color: #2a9963;
+          border-radius: 100%;
+          transition: 0.2s;
+        }
+        &:hover {
+          color: #fff;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 49%;
+            left: 0rem;
+            transform: translateY(-50%);
+            width: 16.5rem;
+            height: 4rem;
+            background-color: #2a9963;
+            border-radius: 0;
+            transition: 0.2s;
+            z-index: -1;
+            @include sp {
+              width: 13.5rem;
+            }
+          }
         }
       }
     }
   }
- 
-
 }
 /*----------------------
       WORKS
@@ -594,7 +642,7 @@ export default {
       display: block;
     }
     &::after {
-      content: '';
+      content: "";
       width: 32%;
       @include sp {
         width: 95%;
@@ -608,7 +656,7 @@ export default {
       overflow: hidden;
       @include sp {
         width: 31rem;
-        margin: 30px auto;
+        margin: 30px auto 10px auto;
       }
       .img {
         width: 100%;
@@ -621,8 +669,8 @@ export default {
           background-size: 34.5rem;
         }
         &:hover {
-         opacity: .7;
-         transition: .2s;
+          opacity: 0.7;
+          transition: 0.2s;
         }
       }
       .title {
@@ -631,11 +679,11 @@ export default {
         margin-top: 10px;
         @include sp {
           font-size: 1.3rem;
-          margin: 1rem 0 3rem 0;
+          margin: 1rem 0 0 0;
         }
         &:hover {
-         opacity: .7;
-         transition: .2s;
+          opacity: 0.7;
+          transition: 0.2s;
         }
       }
     }
@@ -643,45 +691,45 @@ export default {
   &__more {
     display: block;
     width: fit-content;
-    margin: 5rem 7rem 0 auto;
-    text-align: right;
+    margin-left: auto;
+    font-size: 2rem;
+    margin-top: 8rem;
+    padding: 1rem 2rem;
     position: relative;
     @include sp {
-      margin: 2rem 6rem 0 auto;
+      font-size: 1.6rem;
+      margin-top: 2rem;
     }
-    &::after {
-      content: "→";
-      display: block;
+    &::before {
+      content: "";
       position: absolute;
       top: 50%;
-      right: -5rem;
+      left: 0rem;
       transform: translateY(-50%);
-      width: 4rem;
-      height: 4rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: #2a9963;
       border-radius: 100%;
-      border: 1px solid;
-      text-align: center;
-      padding-top: 1rem;
       transition: 0.2s;
-      @include sp {
-        padding-top: 1.1rem;
+    }
+    &:hover {
+      color: #fff;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 49%;
+        left: 0rem;
+        transform: translateY(-50%);
+        width: 16.5rem;
+        height: 4rem;
+        background-color: #2a9963;
+        border-radius: 0;
+        transition: 0.2s;
+        z-index: -1;
+        @include sp {
+          width: 13.5rem;
+        }
       }
-    }
-    &:hover::after {
-      content: "→";
-      display: block;
-      position: absolute;
-      top: 50%;
-      right: -5rem;
-      transform: translateY(-50%);
-      width: 4rem;
-      height: 4rem;
-      border-radius: 100%;
-      border: 1px solid;
-      text-align: center;
-      padding-top: 1rem;
-      padding-left: 3rem;
-      transition: 0.2s;
     }
   }
 }

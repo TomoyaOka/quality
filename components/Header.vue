@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="header">
-      <h1 class="header__logo"><nuxt-link to="/"><img src="~@/assets/img/logo.svg"></nuxt-link></h1>
+      <h1 class="header__logo"><nuxt-link to="/" v-on:click.native="flag = false"><img src="~@/assets/img/logo.svg"></nuxt-link></h1>
       <nav class="nav">
         <ul class="nav__ul">
           <li class="nav__ul-li"><nuxt-link to="/works">WORKS</nuxt-link></li>
@@ -18,23 +18,29 @@
       <nav id="menu-body" :class="{ open: flag }">
         <ul class="sp-ul">
           <li class="sp-ul__li" :class="{ fadein: flag }">
+            <nuxt-link to="/" v-on:click.native="flag = false"
+              ><span>01 ― </span>TOP</nuxt-link
+            >
+          </li>
+          <li class="sp-ul__li" :class="{ fadein: flag }">
             <nuxt-link to="/works" v-on:click.native="flag = false"
-              >01 ― WORKS</nuxt-link
+              ><span>02 ― </span>WORKS</nuxt-link
             >
           </li>
           <li class="sp-ul__li" :class="{ fadein: flag }">
             <nuxt-link to="/about" v-on:click.native="flag = false"
-              >02 ― ABOUT</nuxt-link
+              ><span>03 ― </span>ABOUT</nuxt-link
             >
           </li>
           <li class="sp-ul__li" :class="{ fadein: flag }">
-            <nuxt-link to="/service" v-on:click.native="flag = false"
-              >03 ― SERVICE</nuxt-link
-            >
+            <nuxt-link to="/service" v-on:click.native="flag = false"><span>04 ― </span>SERVICE</nuxt-link>
+            <nuxt-link to="/webdesign" v-on:click.native="flag = false" class="mini">― ホームページ制作</nuxt-link>
+            <nuxt-link to="/coding" v-on:click.native="flag = false" class="mini">― コーディング代行</nuxt-link>
+            <nuxt-link to="/mentor" v-on:click.native="flag = false" class="mini">― コードレビュー、技術的指導</nuxt-link>
           </li>
             <li class="sp-ul__li" :class="{ fadein: flag }">
             <nuxt-link to="/contact" v-on:click.native="flag = false"
-              >04 ― CONTACT</nuxt-link>
+              ><span>05 ― </span>CONTACT</nuxt-link>
           </li>
         </ul>
         <div class="sns">
@@ -44,9 +50,8 @@
         <div class="etc">
           <li>__ address<br>Gunma.Takasaki</li>
           <li>__ name<br>Quality Web Studio </li>
-          <li>__ founding<br>2021.5.10</li>
           <li>__ project<br>Web Design / Coding</li>
-          <li>__ url<br>https://xxxxx.com</li>
+          <li>__ url<br>https://quality-web.jp</li>
         </div>
       </nav>
     </header>
@@ -89,9 +94,9 @@ export default {
     padding: 1.6rem 1.5rem;
   }
   &__logo {
-    width: 15rem;
+    width: 12rem;
     @include sp {
-      width: 7.5rem;
+      width: 7rem;
       position: relative;
       z-index: 9998;
     }
@@ -186,6 +191,17 @@ export default {
           display: block;
           font-size: 1.6rem;
           padding: 20px 25px;
+        }
+        span {
+          font-size: 1.2rem;
+          color: rgb(129, 129, 129);
+          margin-right: 0.3rem;
+        }
+        .mini {
+          display: block;
+          font-size: 1.2rem;
+          padding: 1rem 2.5rem;
+          color: rgb(129, 129, 129);
         }
       }
     }
