@@ -4,7 +4,7 @@
       <p class="entry__breadcrumb">
         <nuxt-link to="/">トップ</nuxt-link> ― {{ item.title }}
       </p>
-      <h2 class="entry__title">{{ item.title }}<br><a href="">{{ item.url }}</a></h2>
+      <h2 class="entry__title">{{ item.title }}<br><a v-bind:href="item.url" target="_blank" rel="noopener noreferrer">{{ item.url }}</a></h2>
       <div class="entry__img" :style="{ 'background-image': 'url(' + item.img.url + ')' }"></div>
 
       <p class="title">Outline</p>

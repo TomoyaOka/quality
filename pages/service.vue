@@ -23,7 +23,7 @@
         <div class="img img__one"></div>
         <div class="text">
           <p>デザイン~サイトの構築まで一貫して制作していきます。<br>作る目的や制作後の運用方法に沿ったサイト設計を行います。<br>使いやすく見やすいサイトを提供いたします。<br>企画進行~最期の納品までは、約1か月~2か月を目安にしていただく形になります。</p>
-          <nuxt-link to="/webdesign" class="more">VIEW MORE</nuxt-link>
+          <nuxt-link to="/webdesign" class="more">詳しく見る</nuxt-link>
 
         </div>
       </div>
@@ -38,7 +38,7 @@
           ・WordPressを使用したオリジナルテーマ構築<br>
           ・Vue.js  Nuxt.jsを使用したサイト制作範囲内の構築<br>
           ・シンプルHTML.CSSでの構築<br>
-           <nuxt-link to="/coding" class="more">VIEW MORE</nuxt-link>
+           <nuxt-link to="/coding" class="more">詳しく見る</nuxt-link>
           </p>
       </div>
 
@@ -49,7 +49,7 @@
             HTML.CSSのコードレビュー、制作指導を行います。<br>
             WordPressを使用してオリジナルテーマ制作についても対応可能ですので、
             学習に詰まってしまっている方、メンターを探している方は是非ご検討ください。<br>
-            <nuxt-link to="/mentor" class="more">VIEW MORE</nuxt-link>
+            <nuxt-link to="/mentor" class="more">詳しく見る</nuxt-link>
           </p>
       </div>
 
@@ -271,7 +271,7 @@ export default {
   &__bg {
     width: 0;
     height: 100%;
-    background-image: url(@/assets/img/service2.jpg);
+    background-image: url(@/assets/img/web06.png);
     background-size: 110rem;
     background-position: center;
     border-radius: 15px 0 0 15px;
@@ -358,7 +358,7 @@ export default {
   &__name {
     width: 51rem;
     max-width: 100%;
-    font-size: 3.4rem;
+    font-size: 2.8rem;
     border-bottom: 1px solid;
     padding-bottom: 2rem;
     margin-bottom: 3rem;

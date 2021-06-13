@@ -30,6 +30,9 @@
     <!-- /news -->
     <!-- service -->
     <section id="service" class="service">
+      <h2 class="service__title">
+        <span class="span">SERVICE</span><br />事業内容
+      </h2>
       <div class="flex">
         <div class="img01"><div class="filter"></div></div>
         <div class="text-box">
@@ -37,7 +40,7 @@
           <p class="text ff-n">
             サイト設計 - デザイン - 構築までワンストップで受付ています。<br>UI / UXを考慮したサイト設計で、見やすい使いやすいを一番に考え制作させていただいております。
           </p>
-          <nuxt-link to="/webdesign" class="more">VIEW MORE</nuxt-link>
+          <nuxt-link to="/webdesign" class="more">詳しく見る</nuxt-link>
         </div>
       </div>
 
@@ -48,7 +51,7 @@
           <p class="text ff-n">
             CMS導入や小規模システム構築、HTMLとCSSによる構築を請け負っています。illustrator.Photoshop.figma.XDどのソフトにも対応しています。
           </p>
-          <nuxt-link to="/coding" class="more">VIEW MORE</nuxt-link>
+          <nuxt-link to="/coding" class="more">詳しく見る</nuxt-link>
         </div>
       </div>
 
@@ -60,7 +63,7 @@
             WordPressオリジナルテーマ制作やHTML.CSSなどのコードレビュー、技術的指導を行います。<br>
             基本的にマンツーマンで進行していくので、受講者のペースで確実に学ぶことが出来ます。
           </p>
-          <nuxt-link to="/mentor" class="more">VIEW MORE</nuxt-link>
+          <nuxt-link to="/mentor" class="more">詳しく見る</nuxt-link>
         </div>
       </div>
     </section>
@@ -84,7 +87,7 @@
           <p class="title ff-n">{{ item.title }}</p>
         </nuxt-link>
       </div>
-      <nuxt-link to="/works" class="works__more">VIEW MORE</nuxt-link>
+      <nuxt-link to="/works" class="works__more">さらに見る</nuxt-link>
     </section>
     <!-- works -->
   </div>
@@ -442,7 +445,38 @@ export default {
 -----------------------*/
 .service {
   margin: 7rem 0 10rem 0;
-
+  &__title {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 5rem;
+    opacity: 0;
+    @include sp {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+    }
+    .span {
+      display: block;
+      font-size: 6rem;
+      position: relative;
+      @include sp {
+        font-size: 3.5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50%);
+        width: 14rem;
+        height: 1px;
+        background-color: #2a9963;
+        @include sp {
+          width: 7rem;
+        }
+      }
+    }
+  }
   .flex {
     display: flex;
     @include sp {
@@ -452,7 +486,7 @@ export default {
       flex-direction: row-reverse;
       margin: 20rem 0;
       @include sp {
-        margin: 2rem 0;
+        margin: 3.5rem 0;
       }
     }
     .img01 {
@@ -580,14 +614,14 @@ export default {
             top: 49%;
             left: 0rem;
             transform: translateY(-50%);
-            width: 16.5rem;
+            width: 14rem;
             height: 4rem;
             background-color: #2a9963;
             border-radius: 0;
             transition: 0.2s;
             z-index: -1;
             @include sp {
-              width: 13.5rem;
+              width: 12rem;
             }
           }
         }
@@ -720,14 +754,14 @@ export default {
         top: 49%;
         left: 0rem;
         transform: translateY(-50%);
-        width: 16.5rem;
+        width: 14rem;
         height: 4rem;
         background-color: #2a9963;
         border-radius: 0;
         transition: 0.2s;
         z-index: -1;
         @include sp {
-          width: 13.5rem;
+          width: 12rem;
         }
       }
     }
