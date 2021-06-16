@@ -4,11 +4,11 @@ const { API_KEY } = process.env;
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   // target: 'static',
-  ssr:false,
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate:  '%s  Quality Web Studio',
+    titleTemplate: '%s  Quality Web Studio',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -33,7 +33,7 @@ export default {
       {
         type: 'module',
         src: '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',
-        body:true
+        body: true
       },
     ]
   },
@@ -48,7 +48,10 @@ export default {
   plugins: [
     { src: '~/plugins/main.js' },
     { src: '~/plugins/vue-scrollto.ts' },
+    '~/plugins/localStorage',
+    '~/plugins/firebase'
   ],
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -92,8 +95,8 @@ export default {
       })
     },
   },
-// ローディングバー設定
-loading: {
+  // ローディングバー設定
+  loading: {
     color: 'mediumseagreen',
     height: '2px'
   },

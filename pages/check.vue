@@ -6,39 +6,60 @@
       <div class="form">
         <div class="form__item">
           <label for="">お問い合わせ種別</label>
-          <p class="text"></p>
+          <p class="text">{{ contactInfo.contactType }}</p>
         </div>
         <div class="form__item">
           <label for="">会社名</label>
-          <p class="text"></p>
+          <p class="text">{{ contactInfo.companyName }}</p>
         </div>
 
         <div class="form__item">
           <label for="">担当者名</label>
-          <p class="text"></p>
+          <p class="text">{{ contactInfo.personName }}</p>
         </div>
 
         <div class="form__item">
           <label for="">メールアドレス</label>
-          <p class="text"></p>
+          <p class="text">{{ contactInfo.mail }}</p>
         </div>
 
         <label for="">お問い合わせ内容</label>
-        <p class="textarea"></p>
-        <button type="submit" class="submit">送信する</button>
+        <p class="textarea">{{ contactInfo.text }}</p>
+        <button type="submit" class="submit" @click="submit">送信する</button>
       </div>
     </div>
     <!-- /form -->
   </div>
 </template>
-
+　
 <script>
 export default {
   head() {
     return {
-      title: " 確認 - Quality Web Studio",
+      title: " 確認 - Quality Web Studio"
     };
   },
+  computed: {
+    contactInfo() {
+      console.log(this.$store.state);
+      return this.$store.state.contactInfo;
+    }
+  },
+  methods: {
+    async submit() {
+      const call = this.$functions.httpsCallable("sendMessage");
+      const res = await call({
+        contactType: this.contactInfo.contactType,
+        companyName: this.contactInfo.companyName,
+        personName: this.contactInfo.personName,
+        mail: this.contactInfo.mail,
+        text: this.contactInfo.text
+      }).then(res => {
+        console.log(res);
+        this.$router.push("/thanks");
+      });
+    }
+  }
 };
 </script>
 
@@ -120,14 +141,14 @@ export default {
       color: #fff;
       text-align: center;
       font-size: 1.6rem;
-      transition: .2s;
+      transition: 0.2s;
       @include sp {
         font-size: 1.4rem;
         padding: 20px;
       }
       &:hover {
         background-color: rgb(26, 78, 49);
-        transition: .2s;
+        transition: 0.2s;
       }
     }
   }

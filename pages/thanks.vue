@@ -1,20 +1,28 @@
 <template>
   <div>
     <div class="thanks ff-n">
-      <h2 class="thanks__flow"><img src="@/assets/img/form3.png"></h2>
-      <p class="name">山田太郎様</p>
+      <h2 class="thanks__flow"><img src="@/assets/img/form3.png" /></h2>
+      <p class="name">{{ contactInfo.personName }}様</p>
       <p class="thanks__text">お問い合わせありがとうございます。</p>
-      <p class="thanks__sub">3日以内に返事がない場合は、<br>お手数をおかけしますが下記メールアドレスにご連絡お願いいたします。<br>t.design@linkrec.net</p>
+      <p class="thanks__sub">
+        3日以内に返事がない場合は、<br />お手数をおかけしますが下記メールアドレスにご連絡お願いいたします。<br />t.design@linkrec.net
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    contactInfo() {
+      console.log(this.$store.state);
+      return this.$store.state.contactInfo;
+    }
+  },
   head() {
     return {
-      title: ' 完了 - '
-    }
+      title: " 完了 - "
+    };
   }
 };
 </script>
@@ -58,5 +66,4 @@ export default {
     }
   }
 }
-
 </style>
