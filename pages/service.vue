@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <h3 id="coding" class="service-list__name">コーディング代行</h3>
+      <h3 id="coding" class="service-list__name">コーディング.CMS構築</h3>
       <div class="service-list__box">
         <div class="img img__two"></div>
         <p class="text">

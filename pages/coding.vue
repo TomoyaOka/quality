@@ -1,9 +1,10 @@
 <template>
 
    <div class="design unit">
-    <h2 class="design__title">コーディング.構築</h2>
+    <h2 class="design__title">コーディング.CMS構築</h2>
     <p class="design__sub">
-      WordPress構築・CMS組み込みなど幅広くお受けしています。
+      WordPress構築・CMS組み込みなど幅広くお受けしています。<br>
+      LP系の1ページサイトのコーディングやスポット対応も同様に可能です。
     </p>
 
     <section class="web02">
@@ -12,7 +13,8 @@
       <div class="web02__box">
         <p class="text">
           小規模なシステム構築やCMS導入を行います。<br>
-          CMS導入は、WordPress・microCMSに対応しています。
+          CMS導入は、WordPress・microCMSに対応しています。<br>
+          カテゴリー.タグなどの出し分けやカスタムフィールドやカスタム投稿も構築可能になっています。
         </p>
         <div class="img img__one"></div>
       </div>
@@ -28,7 +30,8 @@
       <h2 class="web02__title">マークアップ.スタイリング</h2>
       <div class="web02__box">
         <p class="text">
-          HTMLでのマークアップとCSSによるスタイリングを行います。SEOを意識したマークアップで構築していきます。
+          HTMLでのマークアップとCSSによるスタイリングを行います。SEOを意識したマークアップで構築していきます。<br>
+          マークアップ規則やCSS命名規則がある場合は、事前に詳細を共有していただければ対応致します。
         </p>
         <div class="img img__three"></div>
       </div>
@@ -36,20 +39,7 @@
 
     <div class="line03"></div>
     
-    <!-- voice -->
-    <section class="voice">
-      <h2 class="voice__title">お客様からの声</h2>
-      <p class="voice__sub">今まで担当させていただいたお客様の声を幾つかご紹介します。</p>
 
-      <p class="voice__text">VOICE1</p>
-      <p class="voice__text-sub">テキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキスト</p>
-      
-      <p class="voice__text">VOICE2</p>
-      <p class="voice__text-sub">テキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキスト</p>
-
-      <p class="voice__text">VOICE3</p>
-      <p class="voice__text-sub">テキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキスト</p>
-    </section>
   </div>
 
 </template>
@@ -139,8 +129,6 @@ export default {
   }
 
   &__box {
-    // display: flex;
-    // justify-content: space-between;
     margin-bottom: 12rem;
     @include sp {
       display: block;
@@ -160,7 +148,6 @@ export default {
       width: 100%;
       height: 50rem;
       margin-top: 2rem;
-      background-color: #333;
       position: relative;
       @include sp {
         width: 100%;
@@ -210,53 +197,7 @@ export default {
   }
 }
 
-.voice {
 
-  &__title {
-    font-size: 3.6rem;
-    position: relative;
-    @include sp {
-      font-size: 2rem;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: -1.5rem;
-      left: 0;
-      display: block;
-      width: 8rem;
-      height: 1px;
-      background-color: #333;
-      @include sp {
-        width: 4rem;
-      }
-    }
-  }
-  &__sub {
-    font-size: 1.6rem;
-    margin-top: 4rem;
-    margin-bottom: 8rem;
-    @include sp {
-      font-size: 1.3rem;
-      margin: 3rem 0 4rem 0;
-    }
-  }
-  &__text {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    @include sp {
-      font-size: 1.8rem;
-    }
-    &-sub {
-      font-size: 1.6rem;
-      line-height: 1.8;
-      margin-bottom: 4rem;
-      @include sp {
-        font-size: 1.3rem;
-      }
-    }
-  }
-}
 
 
 </style>

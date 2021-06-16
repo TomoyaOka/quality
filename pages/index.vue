@@ -47,7 +47,7 @@
       <div class="flex flex-reverse">
         <div class="img02"><div class="filter02"></div></div>
         <div class="text-box">
-          <p class="title ff-n">コーディング.構築</p>
+          <p class="title ff-n">コーディング.CMS構築</p>
           <p class="text ff-n">
             CMS導入や小規模システム構築、HTMLとCSSによる構築を請け負っています。illustrator.Photoshop.figma.XDどのソフトにも対応しています。
           </p>
@@ -138,12 +138,13 @@ export default {
   methods: {
     scrollItemA() {
       // TweenMax処理
-      TweenMax.to(".fv__img", 2, {
+      TweenMax.to(".fv__img", 1.5, {
         width: "100%",
         width: "100%",
+        delay: 3.8,
         ease: Power4.easeOut,
       }),
-        TweenMax.to(".span", 0.5, { bottom: "0", delay: 0 }),
+        TweenMax.to(".span", 0.5, { bottom: "0", delay: 3.8 }),
         // GSAp処理
         gsap.to(".fv__title", {
           yPercent: -70,
@@ -310,7 +311,7 @@ export default {
     }
     .title1 {
       width: fit-content;
-      font-size: 12rem;
+      font-size: 10rem;
       color: #fff;
       overflow: hidden;
       position: relative;
@@ -329,7 +330,7 @@ export default {
     .title2 {
       width: fit-content;
       max-height: 5.5rem;
-      font-size: 4rem;
+      font-size: 3.6rem;
       color: rgb(87, 87, 87);
       margin: 1rem 0 0 0;
       overflow: hidden;
@@ -349,7 +350,7 @@ export default {
     }
     .title3 {
       width: fit-content;
-      font-size: 3rem;
+      font-size: 2.6rem;
       font-weight: 500;
       color: rgb(87, 87, 87);
       line-height: 1.8;
