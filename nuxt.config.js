@@ -18,7 +18,7 @@ export default {
       { hid: 'description', name: 'description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け、その他コーディング業務など。お気軽にご相談ください。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'Quality Web Studio' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:url', property: 'og:url', content: '' },
+      { hid: 'og:url', property: 'og:url', content: 'https://quality-web.jp/' },
       { hid: 'og:title', property: 'og:title', content: 'Quality Web Studio' },
       { hid: 'og:description', property: 'og:description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け、その他コーディング業務など。お気軽にご相談ください。' },
       { hid: 'og:image', property: 'og:image', content: '' },
@@ -62,8 +62,22 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/google-gtag',
   ],
+  'google-gtag': {
+    id: 'G-EM2T5ZCR0V',
+    debug: true, // Enable to track in dev mode.
+  },
+  sitemap: {
+    path: "/sitemap.xml",
+    hostname: "https://quality-web.jp/",
+  },
+  googleAnalytics: {
+    id: 'G-EM2T5ZCR0V'
+  },
 
   styleResources: {
     scss: [

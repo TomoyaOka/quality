@@ -111,12 +111,15 @@ export default {
   }
   &-text1 {
     margin: 2rem 0;
+    font-weight: 500;
   }
   &-text2 {
-    margin: 3rem 0;
+    margin: 3rem 0 4rem 0;
+    font-weight: 300;
   }
   .title {
     font-size: 2rem;
+    font-weight: 500;
     @include sp {
       font-size: 1.5rem;
     }

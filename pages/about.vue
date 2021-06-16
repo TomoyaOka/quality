@@ -51,8 +51,12 @@
       <table class="address__table">
         <tbody>
           <tr>
+            <th>事業形態</th>
+            <td>個人事業主</td>
+          </tr>
+          <tr>
             <th>屋号名</th>
-            <td>Quality Web Studio</td>
+            <td>Quality Web Studio(クオリティ ウェブ スタジオ)</td>
           </tr>
           <tr>
             <th>住所</th>
@@ -68,7 +72,7 @@
           </tr>
           <tr>
             <th>業務内容</th>
-            <td>・ホームページ制作、更新管理<br />・コーディング代行<br>・コードレビュー</td>
+            <td>・ホームページ制作、更新管理<br />・コーディング.CMS構築<br>・メンター</td>
           </tr>
         </tbody>
       </table>
@@ -300,7 +304,7 @@ export default {
       .text {
         font-size: 1.6rem;
         line-height: 1.6;
-        padding: 1.5rem;
+        padding: 1.5rem 2rem;
         text-align: justify;
         @include sp {
           font-size: 1.3rem;
