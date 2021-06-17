@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Opening />
+    <Opening v-if="!openingSeen" />
     <!-- fv -->
     <div class="fv">
       <div class="fv__title">
@@ -9,7 +9,9 @@
           <span class="span">綿密なサイト設計と伝えるデザイン</span>
         </p>
         <p class="title3 ff-n">
-          <span class="span">万全の制作体制で様々な要望に<br />柔軟に対応することを可能としています</span>
+          <span class="span"
+            >万全の制作体制で様々な要望に<br />柔軟に対応することを可能としています</span
+          >
         </p>
       </div>
       <div class="cover"><div class="fv__img"></div></div>
@@ -38,7 +40,9 @@
         <div class="text-box">
           <p class="title ff-n">ホームページ制作</p>
           <p class="text ff-n">
-            サイト設計 - デザイン - 構築までワンストップで受付ています。<br>UI / UXを考慮したサイト設計で、見やすい使いやすいを一番に考え制作させていただいております。
+            サイト設計 - デザイン - 構築までワンストップで受付ています。<br />UI
+            /
+            UXを考慮したサイト設計で、見やすい使いやすいを一番に考え制作させていただいております。
           </p>
           <nuxt-link to="/webdesign" class="more">詳しく見る</nuxt-link>
         </div>
@@ -60,7 +64,7 @@
         <div class="text-box">
           <p class="title ff-n">Mentor</p>
           <p class="text ff-n">
-            WordPressオリジナルテーマ制作やHTML.CSSなどのコードレビュー、技術的指導を行います。<br>
+            WordPressオリジナルテーマ制作やHTML.CSSなどのコードレビュー、技術的指導を行います。<br />
             基本的にマンツーマンで進行していくので、受講者のペースで確実に学ぶことが出来ます。
           </p>
           <nuxt-link to="/mentor" class="more">詳しく見る</nuxt-link>
@@ -103,38 +107,51 @@ if (process.client) {
 }
 
 export default {
+  /* middleware: "store", */
   data() {
     return {};
   },
   head: {
-    script: [],
+    script: []
   },
   async asyncData({ params }) {
     const page = params.p || "1";
     const limit = 6;
     const works = await axios.get(
-      `https://quality.microcms.io/api/v1/works?limit=${limit}&offset=${
-        (page - 1) * limit
-      }`,
+      `https://quality.microcms.io/api/v1/works?limit=${limit}&offset=${(page -
+        1) *
+        limit}`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
     const day = 3;
     const news = await axios.get(
-      `https://quality.microcms.io/api/v1/news?limit=${day}&offset=${
-        (page - 1) * day
-      }`,
+      `https://quality.microcms.io/api/v1/news?limit=${day}&offset=${(page -
+        1) *
+        day}`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
+
+    const openingSeen = sessionStorage.getItem("openingSeen");
+
     return {
       items: works.data.contents,
       news: news.data.contents,
+      openingSeen
     };
   },
-
   //  GSAP
-  mounted() {
-    this.scrollItemA();
+  async mounted() {
+    console.log(this.opening);
+    if (!this.openingSeen) {
+      setTimeout(async () => {
+        this.scrollItemA();
+        sessionStorage.setItem("openingSeen", true);
+      }, 3400);
+    } else {
+      this.scrollItemA();
+    }
   },
+
   methods: {
     scrollItemA() {
       // TweenMax処理
@@ -142,7 +159,7 @@ export default {
         width: "100%",
         width: "100%",
         delay: 3.8,
-        ease: Power4.easeOut,
+        ease: Power4.easeOut
       }),
         TweenMax.to(".span", 0.5, { bottom: "0", delay: 3.8 }),
         // GSAp処理
@@ -150,8 +167,8 @@ export default {
           yPercent: -70,
           scrollTrigger: {
             trigger: ".fv__title",
-            scrub: true,
-          },
+            scrub: true
+          }
         }),
         gsap.to(".news__title", {
           opacity: 1,
@@ -160,8 +177,8 @@ export default {
           scrollTrigger: {
             trigger: ".news__title",
             start: "top 80%",
-            scrub: false,
-          },
+            scrub: false
+          }
         }),
         gsap.to(".service__title", {
           opacity: 1,
@@ -169,33 +186,33 @@ export default {
           duration: 0.5,
           scrollTrigger: {
             trigger: ".service__title",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter", {
           height: 0,
           duration: 0.5,
-         ease: Power4.easeOut,
+          ease: Power4.easeOut,
           scrollTrigger: {
             trigger: ".filter",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter02", {
           height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter02",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter03", {
           height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter03",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".works__title", {
           opacity: 1,
@@ -203,8 +220,8 @@ export default {
           duration: 0.5,
           scrollTrigger: {
             trigger: ".works__title",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".box", {
           opacity: 1,
@@ -213,12 +230,12 @@ export default {
           scrollTrigger: {
             trigger: ".box",
             start: "top 80%",
-            scrub: false,
+            scrub: false
           },
           stagger: {
             from: "start",
-            amount: 1,
-          },
+            amount: 1
+          }
         }),
         gsap.to(".item", {
           opacity: 1,
@@ -227,12 +244,12 @@ export default {
           scrollTrigger: {
             trigger: ".item",
             start: "top 80%",
-            scrub: false,
+            scrub: false
           },
           stagger: {
             from: "start",
-            amount: 0.3,
-          },
+            amount: 0.3
+          }
         });
       gsap.to(".news__box-item", {
         opacity: 1,
@@ -241,15 +258,15 @@ export default {
         scrollTrigger: {
           trigger: ".news__box-item",
           start: "top 80%",
-          scrub: false,
+          scrub: false
         },
         stagger: {
           from: "start",
-          amount: 0.3,
-        },
+          amount: 0.3
+        }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
