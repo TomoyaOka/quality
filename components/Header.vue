@@ -161,11 +161,12 @@ export default {
   opacity: 0;
 }
 .header {
+
   width: 1600px;
   max-width: 100%;
   padding: 21px 45px;
   position: fixed;
-  top: 1.5rem;
+  top: 2.3rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -183,6 +184,7 @@ export default {
   }
   &__logo {
     width: 10.5rem;
+    position: relative;
     @include sp {
       width: 7rem;
       position: relative;
@@ -247,7 +249,8 @@ export default {
     transition: .3s;
 
     &:hover {
-      background-color:#dfdfdf;
+      color: #fff;
+      background-color:#2a9963;
       transition: .3s;
     }
   }

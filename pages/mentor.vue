@@ -59,20 +59,53 @@
         ラフな寄り添い方をして下さるので、緊張やプレッシャーはあっさりと解けました。<br>
         とにかく、わかりやすい！！<br>
         わからないことでもすぐに聞ける雰囲気が常にあったので、すごく心地よかったです。<br>
-        解説や補足も、凄く丁寧で満足感で満たされる楽しい講習でした。毎回すごく楽しみにしていました！！本当に、ありがとうございました！！
+        解説や補足も、凄く丁寧で満足感で満たされる楽しい講習でした。<br>
+        毎回すごく楽しみにしていました！！本当に、ありがとうございました！！
       </p>
 
-      <p class="voice__text">VOICE2</p>
+      <p class="voice__text">Mさん</p>
       <p class="voice__text-sub">
-        テキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキスト
+        HTMLとCSSを1から教わりました。<br>
+        順序立てて要領よく説明して下さったので、とても勉強になりました！<br>
+        実際のお仕事のお話も一緒にしてくれたので、今の自分では知り得なかった事も知ることが出来ました！<br>
+        学習で行き詰っている方にトモヤさんの講習を是非おすすめしたいと思います。ありがとうございました！
       </p>
 
-      <p class="voice__text">VOICE3</p>
+      <p class="voice__text">Sさん</p>
       <p class="voice__text-sub">
-        テキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキストテキストテキストテキストテキストテキストテキストテキストステキスト
+        最初は不安だったのですが、人柄もよくお話がしやすい方だったのですぐに馴染めました。<br>
+        不明点は納得するまで説明してくれますし、噛み砕いて話して下さったので理解するのに時間はかかりませんでした。<br>
+        今回の講習以外でも色々と関わらせていただきたいと思っています。<br>
+        本当にありがとうございました。
       </p>
     </section>
+
+    <div class="line02"></div>
+
+
+    <!-- price -->
+    <section class="price">
+      <h2 class="price__title">メンター料金</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>HTML.CSS指導</th>
+            <td>50,000円 (税込) 計5講座 1回/90分</td>
+          </tr>
+          <tr>
+            <th>WordPressオリジナルテーマ制作指導</th>
+            <td>70,000円 (税込) 計10講座  1回/90分</td>
+          </tr>
+          <tr>
+            <th>コードレビュー</th>
+            <td>10,000円 /月</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
   </div>
+
 </template>
 
 <script>
@@ -110,7 +143,7 @@ export default {
 .mentor {
   margin: 20rem auto;
   @include sp {
-    margin: 15rem auto;
+    margin: 15rem auto 5rem auto;
   }
   &__title {
     font-size: 3.6rem;
@@ -124,9 +157,12 @@ export default {
       bottom: -1.5rem;
       left: 0;
       display: block;
-      width: 8rem;
+      width: 6rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
+      @include sp {
+        width: 3rem;
+      }
     }
   }
   &__sub {
@@ -141,7 +177,7 @@ export default {
 }
 
 .mentor01 {
-  margin: 10rem 0;
+  margin: 13rem 0 1rem 0;
   @include sp {
     margin: 10rem 0 7rem 0;
   }
@@ -167,7 +203,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
       @include sp {
         width: 4rem;
         bottom: -1rem;
@@ -246,7 +282,7 @@ export default {
   &__box {
     margin:1rem 0 13rem 0;
     @include sp {
-    margin:1rem 0 9rem 0;
+    margin:1rem 0 7rem 0;
     }
     .text {
       width: 52rem;
@@ -289,7 +325,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
       @include sp {
         width: 4rem;
       }
@@ -320,6 +356,59 @@ export default {
       @include sp {
         font-size: 1.3rem;
         padding: 1.2rem 1.2rem;
+      }
+    }
+  }
+}
+
+/*------------------------
+          price
+-------------------------*/
+.price {
+  &__title {
+    font-size: 3.6rem;
+    position: relative;
+    @include sp {
+      font-size: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1.5rem;
+      left: 0;
+      display: block;
+      width: 8rem;
+      height: 1px;
+      background-color: #2a9963;
+      @include sp {
+        width: 4rem;
+      }
+    }
+  }
+  table {
+    margin-top: 5rem;
+    th {
+      font-size: 1.8rem;
+      font-weight: 500;
+      padding: 2.5rem 3rem 2rem 0;
+      border-right: 1px #9c9c9c solid;
+      @include sp {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        display: block;
+        border-bottom: 1px #9c9c9c solid;
+        border-right: 0px #9c9c9c solid;
+      }
+    }
+    td {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      padding: 2rem 4rem;
+      @include sp {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+        display: block;
       }
     }
   }

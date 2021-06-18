@@ -15,12 +15,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け、その他コーディング業務など。お気軽にご相談ください。' },
+      { hid: 'description', name: 'description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け！その他コーディング業務なども行っています。お気軽にご相談ください。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'Quality Web Studio' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       { hid: 'og:url', property: 'og:url', content: 'https://quality-web.jp/' },
       { hid: 'og:title', property: 'og:title', content: 'Quality Web Studio' },
-      { hid: 'og:description', property: 'og:description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け、その他コーディング業務など。お気軽にご相談ください。' },
+      { hid: 'og:description', property: 'og:description', content: '群馬県にて活動しているWEB屋です。ホームページ制作をまるっと引き受け！その他コーディング業務なども行っています。お気軽にご相談ください。' },
       { hid: 'og:image', property: 'og:image', content: '' },
       { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image' },
       { hid: 'twitter:site', property: 'twitter:site', content: '@create_toom' },
@@ -35,6 +35,7 @@ export default {
         src: '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',
         body: true
       },
+      { src: '/main.js' },
     ]
   },
 

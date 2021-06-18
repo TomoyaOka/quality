@@ -20,6 +20,7 @@
         <option value="">選択する</option>
         <option value="ホームページ制作について">ホームページ制作について</option>
         <option value="コーディングについて">コーディングについて</option>
+        <option value="メンターについて">メンターについて</option>
         <option value="その他">その他</option>
       </select>
       <span class="form__item-error" :class="{'active':err_contactType}">※必須項目を入力してください</span>
@@ -302,8 +303,9 @@ export default {
       height: 80px;
       padding-left: 20px;
       display: inline-block;
-      border: 1px solid;
+      border: 1px #9c9c9c solid;
       @include sp {
+        font-size: 1.4rem;
         height: 50px;
       }
     }
@@ -312,8 +314,9 @@ export default {
       height: 80px;
       padding-left: 20px;
       display: inline-block;
-      border: 1px solid;
+      border: 1px #9c9c9c solid;
       @include sp {
+        font-size: 1.4rem;
         height: 50px;
       }
     }
@@ -323,7 +326,11 @@ export default {
       display: inline-block;
       padding: 20px;
       line-height: 1.7;
-      border: 1px solid;
+      border: 1px #9c9c9c solid;
+      @include sp {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+      }
     }
     .submit {
       display: block;

@@ -42,7 +42,7 @@
       <p class="voice__sub">
         今まで担当させていただいたお客様の声を幾つかご紹介します。
       </p>
-      <p class="voice__text">Mさん</p>
+      <p class="voice__text">M.S様</p>
       <p class="voice__text-sub">
         大満足です！大変良いサイトを制作して頂けました！トモヤさんにお願いして大正解でした！<br />
         特にデザインが気に入りました。サイトの見た目も凄く大事なので、洗練されたサイトに仕上げて頂きありがとうございます！<br />
@@ -50,19 +50,50 @@
         これから制作して頂いたサイトをどんどん使わせて頂きます！私も頑張ります！この度はありがとうございました。また何かあれば、是非宜しくお願い致します。
       </p>
 
-      <p class="voice__text">Yさん</p>
+      <p class="voice__text">S.Y様</p>
       <p class="voice__text-sub">
         仕事が早い！！<br />
         レスポンスが早く、非常に丁寧に対応して頂けました。<br />
         完成品も想像以上の仕上がりで、大変満足しています。
       </p>
 
-      <p class="voice__text">Tさん</p>
+      <p class="voice__text">T.R様</p>
       <p class="voice__text-sub">
         オカダ様に依頼して本当に良かったと思っています！<br />
         ワードプレスの使い方がよくわからなかったのですが、丁寧に操作方法を教えてくださりましたので安心できました。<br />
         デザイン面でも私好みでとても気にいっています！<br />ありがとうございました。
       </p>
+    </section>
+
+    <div class="line"></div>
+
+    <!-- price -->
+    <section class="price">
+      <h2 class="price__title">制作料金</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>基本構成について</th>
+            <td>サイト設計 . デザイン . サイト構築 . お問い合わせフォーム設置 . GoogleConsole/Analytics設置 . サーバーへアップ<br><u>※基本的に含まれている内容です</u></td>
+          </tr>
+          <tr>
+            <th>スタンダード</th>
+            <td>110,000円(税込)~ <br class="sp">(3ページ以内＋基本構成＋ディレクション.企画)</td>
+          </tr>
+          <tr>
+            <th>ミドル</th>
+            <td>150,000円(税込)~ <br class="sp">(6ページ以内＋基本構成＋ディレクション.企画)</td>
+          </tr>
+          <tr>
+            <th>コンプ</th>
+            <td>200,000円(税込)~ <br class="sp">(10ページ以内＋基本構成＋ディレクション.企画)</td>
+          </tr>
+          <tr>
+            <th>ドメイン.サーバー取得管理</th>
+            <td>8,000円/月</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </div>
 </template>
@@ -118,7 +149,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
     }
   }
   &__sub {
@@ -151,7 +182,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color:#2a9963;
       @include sp {
         width: 4rem;
       }
@@ -159,8 +190,6 @@ export default {
   }
 
   &__box {
-    // display: flex;
-    // justify-content: space-between;
     margin-bottom: 12rem;
     @include sp {
       display: block;
@@ -224,6 +253,9 @@ export default {
   }
 }
 
+/*------------------------
+          voice
+-------------------------*/
 .voice {
   &__title {
     font-size: 3.6rem;
@@ -239,7 +271,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
       @include sp {
         width: 4rem;
       }
@@ -272,6 +304,60 @@ export default {
         padding: 1.2rem 1.2rem;
       }
     }
+  }
+}
+
+/*------------------------
+          price
+-------------------------*/
+.price {
+  &__title {
+    font-size: 3.6rem;
+    position: relative;
+    @include sp {
+      font-size: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1.5rem;
+      left: 0;
+      display: block;
+      width: 8rem;
+      height: 1px;
+      background-color: #2a9963;
+      @include sp {
+        width: 4rem;
+      }
+    }
+  }
+  table {
+    margin-top: 5rem;
+    th {
+      font-size: 1.8rem;
+      font-weight: 500;
+      padding: 2.5rem 3rem 2rem 0;
+      border-right: 1px #9c9c9c solid;
+      @include sp {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        display: block;
+        border-bottom: 1px #9c9c9c solid;
+        border-right: 0px #9c9c9c solid;
+      }
+    }
+    td {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      padding: 2rem 4rem;
+      @include sp {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+        display: block;
+      }
+    }
+
   }
 }
 </style>

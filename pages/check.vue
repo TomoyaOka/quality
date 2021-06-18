@@ -116,10 +116,12 @@ export default {
     .text {
       width: 100%;
       height: 80px;
-      padding-left: 20px;
+      padding: 2.8rem 2rem;
       display: inline-block;
-      border: 1px solid;
+      border: 1px #9c9c9c solid;
       @include sp {
+        font-size: 1.4rem;
+        padding: 1.4rem 1.5rem;
         height: 50px;
       }
     }
@@ -127,9 +129,13 @@ export default {
       width: 100%;
       min-height: 300px;
       display: inline-block;
-      padding: 20px;
+      padding: 2rem;
       line-height: 1.7;
-      border: 1px solid;
+      border: 1px #9c9c9c solid;
+      @include sp {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+      }
     }
     .submit {
       display: block;

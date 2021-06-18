@@ -1,6 +1,10 @@
 <template>
   <div>
     <Opening />
+
+  <div class="cursor">
+    <div class="cursor__inner"></div>
+  </div> 
     <!-- fv -->
     <div class="fv">
       <div class="fv__title">
@@ -90,6 +94,7 @@
       <nuxt-link to="/works" class="works__more">さらに見る</nuxt-link>
     </section>
     <!-- works -->
+
   </div>
 </template>
 
@@ -101,6 +106,8 @@ import axios from "axios";
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+
 
 export default {
   data() {
@@ -134,6 +141,7 @@ export default {
   //  GSAP
   mounted() {
     this.scrollItemA();
+    
   },
   methods: {
     scrollItemA() {
@@ -254,9 +262,11 @@ export default {
 </script>
 
 <style lang="scss">
+
 /*----------------------
       FV
 -----------------------*/
+
 .fv {
   height: 100vh;
   position: relative;

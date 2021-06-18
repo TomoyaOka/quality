@@ -39,7 +39,30 @@
 
     <div class="line03"></div>
     
-
+    <!-- price -->
+    <section class="price">
+      <h2 class="price__title">コーディング料金</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>コーディングについて</th>
+            <td>ページ数やボリュームによって大幅に変わりますので、下記は目安で詳細はお問い合わせください。</td>
+          </tr>
+          <tr>
+            <th>LP</th>
+            <td>一律50,000円(税込)~ (ボリュームによって変動)</td>
+          </tr>
+          <tr>
+            <th>WordPress構築CMSなし</th>
+            <td>50,000円(税込)~ (ボリュームやページ数によって前後)</td>
+          </tr>
+          <tr>
+            <th>WordPress構築CMSあり</th>
+            <td>80,000円(税込)~ (ボリュームやページ数によって前後)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
 
 </template>
@@ -62,8 +85,7 @@ export default {
   methods: {
     scrollItemG() {
 
- 
-        
+
     },
   },
 };
@@ -73,7 +95,7 @@ export default {
 .design {
   margin: 20rem auto;
   @include sp {
-    margin: 15rem auto;
+    margin: 15rem auto 5rem auto;
   }
   &__title {
     font-size: 3.6rem;
@@ -89,7 +111,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
     }
   }
   &__sub {
@@ -121,7 +143,7 @@ export default {
       display: block;
       width: 8rem;
       height: 1px;
-      background-color: #333;
+      background-color: #2a9963;
       @include sp {
         width: 4rem;
       }
@@ -198,6 +220,58 @@ export default {
 }
 
 
+/*------------------------
+          price
+-------------------------*/
+.price {
+  &__title {
+    font-size: 3.6rem;
+    position: relative;
+    @include sp {
+      font-size: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1.5rem;
+      left: 0;
+      display: block;
+      width: 8rem;
+      height: 1px;
+      background-color: #2a9963;
+      @include sp {
+        width: 4rem;
+      }
+    }
+  }
+  table {
+    margin-top: 5rem;
+    th {
+      font-size: 1.8rem;
+      font-weight: 500;
+      padding: 2.5rem 3rem 2rem 0;
+      border-right: 1px #9c9c9c solid;
+      @include sp {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        display: block;
+        border-bottom: 1px #9c9c9c solid;
+        border-right: 0px #9c9c9c solid;
+      }
+    }
+    td {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      padding: 2rem 4rem;
+      @include sp {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+        display: block;
+      }
+    }
 
+  }
+}
 
 </style>
