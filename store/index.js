@@ -5,7 +5,7 @@ const defaultData = {
         personName: "",
         mail: "",
         text: ""
-    }
+    },
 
 }
 
