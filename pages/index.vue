@@ -147,16 +147,17 @@ export default {
       this.scrollItemA();
     }
   },
+
   methods: {
     scrollItemA() {
       // TweenMax処理
       TweenMax.to(".fv__img", 1.5, {
         width: "100%",
         width: "100%",
-        delay: 3.8,
+        // delay: 3.8,
         ease: Power4.easeOut
       }),
-        TweenMax.to(".span", 0.5, { bottom: "0", delay: 3.8 }),
+        TweenMax.to(".span", 0.5, { bottom: "0" }),
         // GSAp処理
         gsap.to(".fv__title", {
           yPercent: -70,
