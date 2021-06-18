@@ -1,7 +1,5 @@
 <template>
-  <div>
-
-    
+  <div class="header_cv">
     <header class="header">
       <h1 class="header__logo">
         <nuxt-link to="/" v-on:click.native="flag = false"

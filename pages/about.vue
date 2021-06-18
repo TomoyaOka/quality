@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-about_cover">
     <div class="page-about">
       <div class="unit">
         <h2 class="page-about__title">
@@ -10,10 +10,13 @@
       <div class="cover"><div class="page-about__bg"></div></div>
     </div>
     <section class="about-phrase unit">
-      <h2 class="phrase ff-n">様々な質を追及して制作しています。</h2>
-      <p class="phrase__text">
-        伝えるデザインとサイト設計で、<br>1つずつ丁寧に制作していきます。
-      </p>
+      <h2 class="phrase ff-n">様々な質を追及して制作しています</h2>
+      <div class="phrase-flex">
+        <div class="img"><div class="img-filter"></div></div>
+        <p class="text phrase-flex-text ff-n">
+          <span class="title">屋号名の由来</span>
+          私が活動を始めた当初は、とにかくがむしゃらに数をこなしていくという考え方でした。しかし、時間が経つにつれて「数(量)」ではなく、「質」に拘っていきたいという想いが湧いてきました。制作物・人との関わり方など、色々な意味で形だけでなくしっかりと中身のある濃いものする。そういった決意と想いからこの「Quality(質)」という単語を選択しました。「より質の高いものを追求していく」を念頭に、お客様や私と関わっていく方々の役に少しでも立てるよう日々精進していきます。</p>
+      </div>
     </section>
     <section class="strong">
       <h2 class="strong__title">
@@ -42,11 +45,6 @@
         </div>
       </div>
     </section>
-
-    <section class="profile">
-
-    </section>
-    
     <section class="address unit">
       <table class="address__table">
         <tbody>
@@ -100,13 +98,6 @@ export default {
   methods: {
     scrollItemB() {
         TweenMax.to('.page-about__bg', 2 , {width:'100%',ease: Power4.easeOut}),
-        gsap.to(".page-about__bg", {
-        yPercent: 0,
-        scrollTrigger: {
-          trigger: ".page-about__bg",
-          scrub: true,
-        },
-      }),
         gsap.to(".item", {
           opacity: 1,
           y: -20,
@@ -119,6 +110,23 @@ export default {
           stagger: {
             from: "start",
             amount: .5,
+          },
+        }),
+        gsap.to(".img-filter", {
+          width: 0,
+          duration: 0.5,
+          ease: Power4.easeOut,
+          scrollTrigger: {
+            trigger: ".img-filter",
+            start: "top 80%",
+          },
+        }),
+        gsap.to(".phrase-flex-text", {
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: ".phrase-flex-text",
+            start: "top 80%",
           },
         }),
         gsap.to(".page-about__title", {
@@ -193,13 +201,15 @@ export default {
   &__bg {
     width: 0;
     height: 100%;
-    background-image: url(@/assets/img/about.jpg);
+    background-image: url(@/assets/img/about02.jpg);
     background-size: 110rem;
+    background-position: center;
     border-radius: 15px 0 0 15px;
     @include sp {
       width: 0;
       height: 30rem;
-      background-position: bottom;
+      background-size: 50rem;
+      background-position: left;
     }
   }
 }
@@ -213,10 +223,13 @@ export default {
     margin: 7rem 0 8rem 0;
   }
   .phrase {
+    width: fit-content;
     font-size: 3rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
+    padding-bottom: 1rem;
     text-align: center;
+    border-bottom: 1px #9c9c9c solid;
     @include sp {
       font-size: 1.8rem;
     }
@@ -231,6 +244,77 @@ export default {
         font-size: 1.4rem;
         padding: 0 10px;
       }
+    }
+  }
+  .phrase-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10rem;
+    font-weight: 300;
+    @include sp {
+      display: block;
+      margin-top: 5rem;
+    }
+    .img {
+      width: 60rem;
+      height: 40rem;
+      background-image: url(@/assets/img/about02.png);
+      background-size: 60rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      @include sp {
+        width: 100%;
+        height: 20rem;
+        background-size: 34rem;
+      }
+      &-filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+      }
+    }
+    .text {
+      width: 60rem;
+      padding: 2rem;
+      font-size: 1.6rem;
+      line-height: 1.85;
+      @include sp {
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 1rem 0;
+      }
+      .title {
+        display: block;
+        width: fit-content;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        position: relative;
+      @include sp {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      &::after {
+        content: '/ Origin';
+        position: absolute;
+        top: 50%;
+        right: -7rem;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        letter-spacing: 0.05em;
+        @include sp {
+          right: -6rem;
+          font-size: 1.3rem;
+        }
+      }
+      }
+    }
+    &-text {
+      opacity: 0;
     }
   }
 }
@@ -258,9 +342,10 @@ export default {
       max-width: 100%;
       top: -15px;
       font-size: 2rem;
+      line-height: 1.85;
     }
     mark {
-      padding: 0 2rem;
+      padding: 0.5rem 2rem;
       color: #fff;
       background-color: #285b52;
     }

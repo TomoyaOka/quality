@@ -203,6 +203,9 @@ export default {
         background-size: 125%;
         background-position: center;
         }
+        @include mini {
+          background-size: 140%;
+        }
       }
     }
   }
