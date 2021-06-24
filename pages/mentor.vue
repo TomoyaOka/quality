@@ -118,6 +118,10 @@ export default {
   head() {
     return {
       title: " メンター - ",
+      meta:[
+        { hid: 'description', name: 'description', content: 'メンターについて詳細をまとめています。学習に躓いてしまった方は是非ご覧ください。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'メンターについて詳細をまとめています。学習に躓いてしまった方は是非ご覧ください。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
   mounted() {

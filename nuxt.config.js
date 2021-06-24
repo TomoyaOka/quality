@@ -3,7 +3,7 @@ const { API_KEY } = process.env;
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  // target: 'static',
+  target: 'server',
   ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -82,7 +82,6 @@ export default {
   googleAnalytics: {
     id: 'G-EM2T5ZCR0V'
   },
-
   styleResources: {
     scss: [
       '@/assets/scss/_mixin.scss',

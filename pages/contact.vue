@@ -63,7 +63,11 @@ if (process.client) {
 export default {
   head() {
     return {
-      title: "お問い合わせ - "
+      title: "お問い合わせ - ",
+      meta:[
+        { hid: 'description', name: 'description', content: 'ホームページ制作やコーディング業務などについてはこちらからお問い合わせください。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'ホームページ制作やコーディング業務などについてはこちらからお問い合わせください。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
   mounted() {

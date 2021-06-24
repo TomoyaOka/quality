@@ -21,7 +21,10 @@ export default {
   },
   head() {
     return {
-      title: " 完了 - "
+      title: " 完了 - ",
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex,follow'},
+      ],
     };
   }
 };

@@ -142,6 +142,10 @@ export default {
   head() {
     return {
       title: " 事業内容について - ",
+      meta:[
+        { hid: 'description', name: 'description', content: '事業内容についてご紹介しています。ホームページ制作やコーディング業務など是非お任せください。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: '事業内容についてご紹介しています。ホームページ制作やコーディング業務など是非お任せください。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
   mounted() {

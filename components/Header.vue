@@ -35,6 +35,7 @@
             <!-- /hover-menu -->
           </li>
           </div>
+          <li class="nav__ul-li"><nuxt-link to="/blog">BLOG</nuxt-link></li>
           <li class="nav__ul-li nav__ul-li--green">
             <nuxt-link to="/contact">CONTACT</nuxt-link>
           </li>
@@ -77,7 +78,7 @@
               to="/coding"
               v-on:click.native="flag = false"
               class="mini"
-              >― コーディング代行</nuxt-link
+              >― コーディング.CMS構築</nuxt-link
             >
             <nuxt-link
               to="/mentor"
@@ -87,8 +88,13 @@
             >
           </li>
           <li class="sp-ul__li" :class="{ fadein: flag }">
+            <nuxt-link to="/blog" v-on:click.native="flag = false"
+              ><span>05 ― </span>BLOG</nuxt-link
+            >
+          </li>
+          <li class="sp-ul__li" :class="{ fadein: flag }">
             <nuxt-link to="/contact" v-on:click.native="flag = false"
-              ><span>05 ― </span>CONTACT</nuxt-link
+              ><span>06 ― </span>CONTACT</nuxt-link
             >
           </li>
         </ul>
@@ -160,7 +166,7 @@ export default {
 }
 .header {
 
-  width: 1600px;
+  width: 160rem;
   max-width: 100%;
   padding: 21px 45px;
   position: fixed;
@@ -196,7 +202,7 @@ export default {
 
 .nav {
   &__ul {
-    width: 44rem;
+    width: 60rem;
     max-width: 100%;
     display: flex;
     justify-content: space-between;
@@ -206,7 +212,7 @@ export default {
     }
     &-li {
       font-size: 1.8rem;
-      padding: 2rem 2rem;
+      padding: 2rem 1.5rem;
       &--green {
         color: rgb(42, 153, 99);
       }
@@ -227,7 +233,7 @@ export default {
   width: 84vw;
   height: 30rem;
   position: absolute;
-  left: -70vw;
+  left: -62vw;
   bottom: -30rem;
   background-color: #fff;
   border: 1px #9c9c9c solid;

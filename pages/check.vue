@@ -36,7 +36,10 @@
 export default {
   head() {
     return {
-      title: " 確認 - Quality Web Studio"
+      title: " 確認 - Quality Web Studio",
+       meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex,follow'},
+      ],
     };
   },
   computed: {

@@ -90,6 +90,10 @@ export default {
   head() {
     return {
       title: " Quality Web Studioについて- Quality Web Studio",
+      meta:[
+        { hid: 'description', name: 'description', content: 'QualityWebStudioの由来や強みについてご紹介しています。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'QualityWebStudioの由来や強みについてご紹介しています。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
   mounted() {

@@ -77,6 +77,10 @@ export default {
   head() {
     return {
       title: " コーディング - ",
+      meta:[
+        { hid: 'description', name: 'description', content: 'コーディング業務、CMS導入について詳細をまとめています。WordPress等に対応可能です。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'コーディング業務、CMS導入について詳細をまとめています。WordPress等に対応可能です。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
   mounted() {

@@ -36,7 +36,7 @@ export default {
         { hid: 'og:type', property: 'og:type', content: 'website' },
         { hid: 'og:title', property: 'og:title', content: this.item.title },
         { hid: 'og:description', property: 'og:description', content: this.item.description },
-        { hid: 'og:url', property: 'og:url', content: 'https://next-blog.site/'+this.item.id+'/'},
+        { hid: 'og:url', property: 'og:url', content: 'https://quality-web.jp/'+this.item.id+'/'},
         { hid: 'twitter:title', property: 'twitter:title', content: this.item.title },
         { hid: 'twitter:description', property: 'twitter:description', content: this.item.description },
       ],

@@ -108,6 +108,10 @@ export default {
   head() {
     return {
       title: " ホームページ制作 - ",
+      meta:[
+        { hid: 'description', name: 'description', content: 'ホームページ制作についてまとめています。デザイン~構築まで全て行うことができますので、是非ご相談ください。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'ホームページ制作についてまとめています。デザイン~構築まで全て行うことができますので、是非ご相談ください。群馬県にて活動しているWEB屋。' },
+      ]
     };
   },
     mounted() {

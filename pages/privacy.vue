@@ -1,6 +1,6 @@
 <template>
   <div class="warpper">
-    <div class="privacy unit">
+    <section class="privacy unit">
         <h2 class="privacy__title"><span class="span">PEIVACY.POLICY</span><br>プライバシーポリシー</h2>
         <p class="breadcrumb"><nuxt-link to="/">TOP</nuxt-link> > PEIVACY.POLICY</p>
       <div class="privacy-text ff-n">
@@ -60,7 +60,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -69,6 +69,10 @@ export default {
   head() {
     return {
       title: " プライバシーポリシー - ",
+      meta:[
+        { hid: 'description', name: 'description', content: 'プライバシーポリシーを記載しています。群馬県にて活動しているWEB屋。' },
+        { hid: 'og:description', property: 'og:description', content: 'プライバシーポリシーを記載しています。群馬県にて活動しているWEB屋。' },
+      ]
     };
   }
 };

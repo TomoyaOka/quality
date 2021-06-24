@@ -1,17 +1,17 @@
 <template>
   <div class="warpper">
-    <div class="page-works">
+    <div class="page-blog">
       <div class="unit">
-        <h2 class="page-works__title etc">
-          <span class="span">WORKS</span><br /><span class="span02">制作実績 / 構築 / デザイン</span>
+        <h2 class="page-blog__title etc">
+          <span class="span">BLOG</span><br /><span class="span02">各種記事 / ブログ / メディア</span>
         </h2>
-        <p class="breadcrumb"><nuxt-link to="/">TOP</nuxt-link> > WORKS</p>
+        <p class="breadcrumb"><nuxt-link to="/">TOP</nuxt-link> > BLOG</p>
       </div>
-      <div class="cover"><div class="page-works__bg"></div></div>
+      <div class="cover"><div class="page-blog__bg"></div></div>
     </div>
-    <!-- works -->
-    <section id="works" class="works unit">
-      <div class="works__box">
+    <!-- blog -->
+    <section id="blog" class="blog unit">
+      <div class="blog__box">
         <nuxt-link
           :to="item.id"
           v-for="item in items"
@@ -26,7 +26,7 @@
         </nuxt-link>
       </div>
     </section>
-    <!-- works -->
+    <!-- blog -->
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get(
-      `https://quality.microcms.io/api/v1/works`,
+      `https://quality.microcms.io/api/v1/blog`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
     return {
@@ -58,7 +58,7 @@ export default {
   },
   head() {
     return {
-      title: "制作実績 - ",
+      title: "ブログ - ",
       meta:[
         { hid: 'description', name: 'description', content: '掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。' },
         { hid: 'og:description', property: 'og:description', content: '掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。' },
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     scrollItemA() {
-      TweenMax.to(".page-works__bg", 2, {
+      TweenMax.to(".page-blog__bg", 2, {
         width: "100%",
         ease: Power4.easeOut,
       }),
@@ -88,12 +88,12 @@ export default {
             amount: 1,
           },
         }),
-        gsap.to(".page-works__title", {
+        gsap.to(".page-blog__title", {
           opacity: 1,
           y: -20,
           duration: 0.5,
           scrollTrigger: {
-            trigger: ".page-works__title",
+            trigger: ".page-blog__title",
             start: "top 80%",
           },
         });
@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-.page-works {
+.page-blog {
   position: relative;
   height: 70rem;
   margin-top: 150px;
@@ -172,11 +172,140 @@ export default {
   }
 }
 /*----------------------
-      WORKS
+      blog
 -----------------------*/
-.etc {
+.blog {
+  padding: 5rem 1rem;
+  margin-bottom: 10rem;
   @include sp {
-    padding: 17.5rem 0 1rem 0;
+    padding: 10px;
+  }
+  &__title {
+    opacity: 0;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    @include sp {
+      font-size: 1.4rem;
+    }
+    .span {
+      display: block;
+      font-size: 6rem;
+      position: relative;
+      @include sp {
+        font-size: 3.5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 14rem;
+        height: 1px;
+        background-color: #2a9963;
+        @include sp {
+          width: 5rem;
+        }
+      }
+    }
+  }
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include sp {
+      display: block;
+    }
+    &::after {
+      content: "";
+      width: 32%;
+      @include sp {
+        width: 95%;
+      }
+    }
+    .box {
+      opacity: 0;
+      display: block;
+      width: 32%;
+      margin-top: 30px;
+      overflow: hidden;
+      @include sp {
+        width: 31rem;
+        margin: 30px auto 10px auto;
+      }
+      .img {
+        width: 100%;
+        height: 25rem;
+        background-size: 42rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        @include sp {
+          height: 18rem;
+          background-size: 34.5rem;
+        }
+        &:hover {
+          opacity: 0.7;
+          transition: 0.2s;
+        }
+      }
+      .title {
+        font-size: 1.6rem;
+        color: #2a9963;
+        margin-top: 10px;
+        @include sp {
+          font-size: 1.3rem;
+          margin: 1rem 0 0 0;
+        }
+        &:hover {
+          opacity: 0.7;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+  &__more {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    font-size: 2rem;
+    margin-top: 8rem;
+    padding: 1rem 2rem;
+    position: relative;
+    @include sp {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0rem;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      background-color: #2a9963;
+      border-radius: 100%;
+      transition: 0.2s;
+    }
+    &:hover {
+      color: #fff;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 49%;
+        left: 0rem;
+        transform: translateY(-50%);
+        width: 14rem;
+        height: 4rem;
+        background-color: #2a9963;
+        border-radius: 0;
+        transition: 0.2s;
+        z-index: -1;
+        @include sp {
+          width: 12rem;
+        }
+      }
+    }
   }
 }
 </style>
