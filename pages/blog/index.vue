@@ -3,7 +3,9 @@
     <div class="page-blog">
       <div class="unit">
         <h2 class="page-blog__title etc">
-          <span class="span">BLOG</span><br /><span class="span02">各種記事 / ブログ / メディア</span>
+          <span class="span">BLOG</span><br /><span class="span02"
+            >各種記事 / ブログ / メディア</span
+          >
         </h2>
         <p class="breadcrumb"><nuxt-link to="/">TOP</nuxt-link> > BLOG</p>
       </div>
@@ -13,7 +15,7 @@
     <section id="blog" class="blog unit">
       <div class="blog__box">
         <nuxt-link
-          :to="item.id"
+          :to="`/blog/${item.id}`"
           v-for="item in items"
           :key="item.id"
           class="box"
@@ -41,11 +43,11 @@ if (process.client) {
 export default {
   data() {
     return {
-      items: "" /*  itemsにデータを格納   */,
+      items: "" /*  itemsにデータを格納   */
     };
   },
   head: {
-    script: [],
+    script: []
   },
   async asyncData() {
     const { data } = await axios.get(
@@ -53,15 +55,23 @@ export default {
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
     return {
-      items: data.contents,
+      items: data.contents
     };
   },
   head() {
     return {
       title: "ブログ - ",
-      meta:[
-        { hid: 'description', name: 'description', content: '掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。' },
-        { hid: 'og:description', property: 'og:description', content: '掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。' },
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。"
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "掲載可能な実績を挙げています。群馬県にて活動しているWEB屋。"
+        }
       ]
     };
   },
@@ -72,7 +82,7 @@ export default {
     scrollItemA() {
       TweenMax.to(".page-blog__bg", 2, {
         width: "100%",
-        ease: Power4.easeOut,
+        ease: Power4.easeOut
       }),
         gsap.to(".box", {
           opacity: 1,
@@ -81,12 +91,12 @@ export default {
           scrollTrigger: {
             trigger: ".box",
             start: "top 80%",
-            scrub: false,
+            scrub: false
           },
           stagger: {
             from: "start",
-            amount: 1,
-          },
+            amount: 1
+          }
         }),
         gsap.to(".page-blog__title", {
           opacity: 1,
@@ -94,11 +104,11 @@ export default {
           duration: 0.5,
           scrollTrigger: {
             trigger: ".page-blog__title",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

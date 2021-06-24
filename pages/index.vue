@@ -79,7 +79,7 @@
       </h2>
       <div class="works__box">
         <nuxt-link
-          :to="item.id"
+          :to="`/works/${item.id}`"
           v-for="item in items"
           :key="item.id"
           class="box"
@@ -94,51 +94,50 @@
       <nuxt-link to="/works" class="works__more">さらに見る</nuxt-link>
     </section>
     <!-- works -->
-
   </div>
 </template>
 
 <script>
-import { gsap } from "gsap";
+import { gsap, TweenMax, Power4 } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import axios from "axios";
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(Power4);
 }
-
-
 
 export default {
   /* middleware: "store", */
   data() {
     return {
-      isSlide:false,
+      isSlide: false,
+      openingSeen: false
     };
   },
   head: {
-    script: [],
+    script: []
   },
   async asyncData({ params }) {
     const page = params.p || "1";
     const limit = 6;
     const works = await axios.get(
-      `https://quality.microcms.io/api/v1/works?limit=${limit}&offset=${
-        (page - 1) * limit
-      }`,
+      `https://quality.microcms.io/api/v1/works?limit=${limit}&offset=${(page -
+        1) *
+        limit}`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
     const day = 3;
     const news = await axios.get(
-      `https://quality.microcms.io/api/v1/news?limit=${day}&offset=${
-        (page - 1) * day
-      }`,
+      `https://quality.microcms.io/api/v1/news?limit=${day}&offset=${(page -
+        1) *
+        day}`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
-    const openingSeen = sessionStorage.getItem("openingSeen");
+    /* const openingSeen = sessionStorage.getItem("openingSeen"); */
     return {
       items: works.data.contents,
-      news: news.data.contents,
-      openingSeen,
+      news: news.data.contents
+      /* openingSeen, */
     };
   },
   //  GSAP
@@ -161,7 +160,7 @@ export default {
         width: "100%",
         width: "100%",
         // delay: 3.8,
-        ease: Power4.easeOut,
+        ease: Power4.easeOut
       }),
         TweenMax.to(".span", 0.5, { bottom: "0" }),
         // GSAp処理
@@ -169,8 +168,8 @@ export default {
           yPercent: -70,
           scrollTrigger: {
             trigger: ".fv__title",
-            scrub: true,
-          },
+            scrub: true
+          }
         }),
         gsap.to(".news__title", {
           opacity: 1,
@@ -179,8 +178,8 @@ export default {
           scrollTrigger: {
             trigger: ".news__title",
             start: "top 80%",
-            scrub: false,
-          },
+            scrub: false
+          }
         }),
         gsap.to(".service__title", {
           opacity: 1,
@@ -188,8 +187,8 @@ export default {
           duration: 0.5,
           scrollTrigger: {
             trigger: ".service__title",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter", {
           height: 0,
@@ -197,24 +196,24 @@ export default {
           ease: Power4.easeOut,
           scrollTrigger: {
             trigger: ".filter",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter02", {
           height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter02",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".filter03", {
           height: 0,
           duration: 0.5,
           scrollTrigger: {
             trigger: ".filter03",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".works__title", {
           opacity: 1,
@@ -222,8 +221,8 @@ export default {
           duration: 0.5,
           scrollTrigger: {
             trigger: ".works__title",
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }),
         gsap.to(".box", {
           opacity: 1,
@@ -232,12 +231,12 @@ export default {
           scrollTrigger: {
             trigger: ".box",
             start: "top 80%",
-            scrub: false,
+            scrub: false
           },
           stagger: {
             from: "start",
-            amount: 1,
-          },
+            amount: 1
+          }
         }),
         gsap.to(".item", {
           opacity: 1,
@@ -246,12 +245,12 @@ export default {
           scrollTrigger: {
             trigger: ".item",
             start: "top 80%",
-            scrub: false,
+            scrub: false
           },
           stagger: {
             from: "start",
-            amount: 0.3,
-          },
+            amount: 0.3
+          }
         });
       gsap.to(".news__box-item", {
         opacity: 1,
@@ -260,20 +259,19 @@ export default {
         scrollTrigger: {
           trigger: ".news__box-item",
           start: "top 80%",
-          scrub: false,
+          scrub: false
         },
         stagger: {
           from: "start",
-          amount: 0.3,
-        },
+          amount: 0.3
+        }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-
 /*----------------------
       FV
 -----------------------*/
