@@ -12,11 +12,12 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
+import { gsap, TweenMax, Expo } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(Expo);
 }
 
 export default {

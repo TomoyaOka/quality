@@ -1,10 +1,11 @@
+import axios from "axios";
 require('dotenv').config();
 const { API_KEY } = process.env;
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
-  ssr: false,
+  target: 'static',
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -30,11 +31,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      {
+      /* {
         type: 'module',
         src: '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',
         body: true
-      },
+      }, */
       { src: '/main.js' },
     ]
   },
@@ -47,9 +48,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/main.js' },
+    /* { src: '~/plugins/main.js' }, */
     { src: '~/plugins/vue-scrollto.ts' },
-    '~/plugins/localStorage',
+    { src: '~plugins/localStorage', ssr: false },
     '~/plugins/firebase'
   ],
 
@@ -100,7 +101,34 @@ export default {
   },
   performance: { hints: false },
 
-  router: {
+  generate: {
+    async routes() {
+
+      const blogs = await axios
+        .get('https://quality.microcms.io/api/v1/blog', {
+          headers: { 'X-API-KEY': API_KEY }
+        })
+        .then((res) =>
+          res.data.contents.map((content) => ({
+            route: `/blog/${content.id}`,
+            payload: content
+          }))
+        )
+      const works = await axios
+        .get('https://quality.microcms.io/api/v1/works', {
+          headers: { 'X-API-KEY': API_KEY }
+        })
+        .then((res) =>
+          res.data.contents.map((content) => ({
+            route: `/works/${content.id}`,
+            payload: content
+          }))
+        )
+      return [...blogs, ...works]
+    }
+  },
+
+  /* router: {
     extendRoutes(routes, resolve) {
       routes.push({
         path: '/page/:p',
@@ -108,7 +136,7 @@ export default {
         name: 'page',
       })
     },
-  },
+  }, */
   // ローディングバー設定
   loading: {
     color: 'mediumseagreen',
