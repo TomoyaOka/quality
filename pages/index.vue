@@ -117,7 +117,7 @@ export default {
   head: {
     script: []
   },
-  async asyncData({ params }) {
+  async asyncData({ params, store }) {
     const page = params.p || "1";
     const limit = 6;
     const works = await axios.get(
@@ -133,20 +133,19 @@ export default {
         day}`,
       { headers: { "X-API-KEY": process.env.API_KEY } }
     );
-    /* const openingSeen = sessionStorage.getItem("openingSeen"); */
+    const openingSeen = store.state.openingSeen;
     return {
       items: works.data.contents,
-      news: news.data.contents
-      /* openingSeen, */
+      news: news.data.contents,
+      openingSeen
     };
   },
   //  GSAP
   async mounted() {
-    console.log(this.opening);
     if (!this.openingSeen) {
       setTimeout(async () => {
         this.scrollItemA();
-        sessionStorage.setItem("openingSeen", true);
+        this.$store.commit("openingSeen");
       }, 3400);
     } else {
       this.scrollItemA();
