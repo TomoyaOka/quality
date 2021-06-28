@@ -6,6 +6,7 @@ const defaultData = {
         mail: "",
         text: ""
     },
+    openingSeen: false
 
 }
 
@@ -23,5 +24,8 @@ export const mutations = {
 
     delete(state) {
         state["contactInfo"] = defaultData["contactInfo"]
+    },
+    openingSeen(state) {
+        state.openingSeen = true
     }
 };
